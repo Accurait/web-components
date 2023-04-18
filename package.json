@@ -1,6 +1,9 @@
 {
-  "name": "@flnt/web-components",
-  "private": true,
+  "name": "@flnt-accurait/web-components",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "private": false,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

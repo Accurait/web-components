@@ -11,10 +11,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "storybook": "concurrently 'pnpm:watch:*'",
-    "watch:storybook": "storybook dev -p 6006",
     "watch:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch",
-    "build-storybook": "pnpm build:tailwind && storybook build",
-    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css"
+    "watch:storybook": "storybook dev -p 6006",
+    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css",
+    "build-storybook": "pnpm build:tailwind && storybook build"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",

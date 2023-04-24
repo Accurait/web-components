@@ -6,7 +6,6 @@ export type ButtonVariantProps = VariantProps<typeof useButtonClasses>
 export const useButtonClasses = cva(
   [
     'text-white',
-
     'focus:ring-4',
     'focus:outline-none',
     'focus:ring-blue-300',
@@ -34,7 +33,7 @@ export const useButtonClasses = cva(
           'dark:bg-gray-600',
           'dark:hover:bg-gray-700',
           'dark:focus:ring-gray-800',
-        ]
+        ],
       },
       size: {
         sm: ['text-xs', 'px-3', 'py-2'],
@@ -43,11 +42,11 @@ export const useButtonClasses = cva(
       },
       shape: {
         pill: ['rounded-full'],
-      }
+      },
     },
     defaultVariants: {
       color: 'primary',
       size: 'md',
-    }
+    },
   }
 )

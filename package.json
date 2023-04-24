@@ -14,7 +14,8 @@
     "watch:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch",
     "watch:storybook": "storybook dev -p 6006",
     "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css",
-    "build-storybook": "pnpm build:tailwind && storybook build"
+    "build-storybook": "pnpm build:tailwind && storybook build",
+    "release": "pnpm version patch && pnpm publish --access public"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.5.2",
-    "flowbite": "^1.6.5"
+    "flowbite": "^1.6.5",
+    "tailwind-merge": "^1.12.0"
   }
 }

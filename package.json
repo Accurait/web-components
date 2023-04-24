@@ -9,7 +9,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "npx nuxi prepare",
     "storybook": "concurrently 'pnpm:watch:*'",
     "watch:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch",
     "watch:storybook": "storybook dev -p 6006",

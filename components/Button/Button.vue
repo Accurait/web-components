@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes">
+  <button type="button" :class="[...classes.split(' ')]">
     <slot />
   </button>
 </template>

@@ -1,17 +1,18 @@
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
-  stories: ["../components/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ['../components/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    'storybook-tailwind-dark-mode',
   ],
   framework: {
-    name: "@storybook/vue3-vite",
+    name: '@storybook/vue3-vite',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
-};
-export default config;
+}
+export default config

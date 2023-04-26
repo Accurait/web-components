@@ -15,6 +15,11 @@ const preview = {
       },
     },
   },
+  globalTypes: {
+    darkMode: {
+      defaultValue: false
+    }
+  }
 }
 
 export default preview

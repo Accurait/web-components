@@ -45,6 +45,6 @@ export const Pill: Story = {
 
 export const Customize: Story = {
   args: {
-    customize: 'bg-green-800'
+    customize: 'bg-green-700 dark:bg-green-400 dark:text-black'
   },
 }

@@ -1,12 +1,8 @@
 <template>
   <div>
-    <Button @click="onClick">Test</Button>  
+    <Button>click me</Button>
   </div>
 </template>
 
 <script setup lang="ts">
-
-function onClick() {
-  console.log('clicked')
-}
 </script>

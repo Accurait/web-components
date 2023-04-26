@@ -27,7 +27,7 @@
     "@storybook/vue3": "7.0.5",
     "@storybook/vue3-vite": "7.0.5",
     "concurrently": "^8.0.1",
-    "nuxt": "3.4.1",
+    "nuxt": "^3.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "7.0.5"

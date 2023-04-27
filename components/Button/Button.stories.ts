@@ -16,7 +16,8 @@ const meta: Meta<typeof Button> = {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
   },
   args: {
-    content: 'Click me'
+    content: 'Click me',
+    loading: false
   },
 
 }

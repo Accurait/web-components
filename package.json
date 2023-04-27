@@ -9,7 +9,6 @@
     "dev": "nuxi dev",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "postinstall": "nuxi prepare",
     "storybook": "concurrently 'pnpm:watch:*'",
     "watch:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch",
     "watch:storybook": "storybook dev -p 6006",

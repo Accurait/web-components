@@ -44,6 +44,12 @@ export const Pill: Story = {
   },
 }
 
+export const Link: Story = {
+  args: {
+    to: 'www.google.com',
+  },
+}
+
 export const Customize: Story = {
   args: {
     customize: 'bg-green-700 dark:bg-green-400 dark:text-black'

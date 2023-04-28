@@ -35,6 +35,7 @@
   "dependencies": {
     "class-variance-authority": "^0.5.2",
     "flowbite": "^1.6.5",
+    "nanoid": "^4.0.2",
     "tailwind-merge": "^1.12.0"
   }
 }

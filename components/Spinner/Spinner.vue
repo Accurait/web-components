@@ -15,7 +15,6 @@
       fill="currentFill"
     />
   </svg>
-  <span class="sr-only">Loading...</span>
 </template>
 
 <script setup lang="ts">

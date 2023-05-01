@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-
+import { ref } from 'vue'
 import Checkbox from './Checkbox.vue'
 
 const meta: Meta<typeof Checkbox> = {
@@ -15,6 +15,7 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {},
   args: {
     content: 'default checkbox content',
+    modelValue: false
   },
 }
 
@@ -29,6 +30,25 @@ export const Primary: Story = {
 export const Customize: Story = {
   args: {
     checkboxCustomize: 'w-6 h-6 accent-green-600',
-    labelCustomize: 'text-lg'
+    labelCustomize: 'text-lg',
+  },
+}
+
+export const ValueBinding: Story = {
+  render: (args) => ({
+    components: { Checkbox },
+    setup() {
+      const model = ref(false)
+
+      return {
+        model,
+        args,
+      }
+    },
+    template:
+      '<Checkbox v-bind="args" v-model="model" >{{ args.content }} : {{ model }}</Checkbox>',
+  }),
+  args: {
+    content: 'checked status',
   },
 }

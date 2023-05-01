@@ -16,6 +16,7 @@ export const useButtonClasses = cva(
     'py-2.5',
     'mr-2',
     'mb-2',
+    'inline-flex justify-center items-center',
   ],
   {
     variants: {

@@ -6,7 +6,7 @@ const meta: Meta<typeof Spinner> = {
   title: 'Spinner',
   component: Spinner,
   argTypes: {
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'] },
   },
 }
 

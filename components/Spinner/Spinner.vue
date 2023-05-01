@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { useSpinnerClasses, SpinnerVariantProps } from './composables/useSpinnerClasses'
-import { PropType, computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
 
 const props = defineProps({

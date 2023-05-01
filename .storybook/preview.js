@@ -4,6 +4,8 @@
     so we need to import it manually and it is generated from the tailwind-input.css and conten of the tailwind.config.js
 */
 import '../assets/css/tailwind-output.css'
+import { action } from '@storybook/addon-actions'
+import { setup } from '@storybook/vue3'
 
 const preview = {
   parameters: {
@@ -17,9 +19,20 @@ const preview = {
   },
   globalTypes: {
     darkMode: {
-      defaultValue: false
-    }
-  }
+      defaultValue: false,
+    },
+    className: {
+      defaultValue: '',
+    },
+  },
 }
+
+// mock NuxtLink component as storybook cannot import it automatically
+setup((app) => {
+  app.component('NuxtLink', {
+    props: ['to'],
+    template: `<a :href="to"><slot /></a>`,
+  })
+})
 
 export default preview

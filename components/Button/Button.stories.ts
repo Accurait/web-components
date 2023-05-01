@@ -8,18 +8,23 @@ const meta: Meta<typeof Button> = {
   render: (args) => ({
     components: { Button },
     setup() {
-      return { args }
+      const onClick = () => {
+        args.loading = true
+      }
+      return { args, onClick }
     },
-    template: '<Button v-bind="args">{{args.content}}</Button>',
+    template: '<Button v-bind="args" @click="onClick">{{args.content}}</Button>',
   }),
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    color: { control: 'select', options: ['primary', 'secondary'] },
+    shape: { control: 'select', options: ['pill', 'default'] },
   },
   args: {
     content: 'Click me',
-    loading: false
+    loading: false,
+    color: 'primary',
   },
-
 }
 
 //👇 This default export determines where your story goes in the story list
@@ -32,26 +37,14 @@ export const Primary: Story = {
   },
 }
 
-export const Secondary: Story = {
-  args: {
-    color: 'secondary',
-  },
-}
-
-export const Pill: Story = {
-  args: {
-    shape: 'pill',
-  },
-}
-
 export const Link: Story = {
   args: {
-    to: 'www.google.com',
+    to: 'https://www.google.com',
   },
 }
 
 export const Customize: Story = {
   args: {
-    customize: 'bg-green-700 dark:bg-green-400 dark:text-black'
+    customize: 'bg-green-700 dark:bg-green-400 dark:text-black',
   },
 }

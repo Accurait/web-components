@@ -11,9 +11,10 @@ export const useSpinnerClasses = cva(
         primary: ['fill-blue-600'],
       },
       size: {
+        xs: ['w-4', 'h-4'],
         sm: ['w-6', 'h-6'],
         md: ['w-8', 'h-8'],
-        lg: ['w-10', 'h-10'],
+        lg: ['w-12', 'h-12'],
       },
     },
     // default values

@@ -24,6 +24,7 @@ const meta: Meta<typeof Button> = {
     content: 'Click me',
     loading: false,
     color: 'primary',
+    disabled: false,
   },
 }
 

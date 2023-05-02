@@ -41,8 +41,8 @@ const props = defineProps({
     default: false,
   },
   value: {
-    type: String
-  }
+    type: String,
+  },
 })
 
 const checkboxClasses = computed(() => twMerge(useCheckboxClasses(), props.checkboxCustomize))

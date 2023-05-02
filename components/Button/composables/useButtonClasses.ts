@@ -15,6 +15,8 @@ export const useButtonClasses = cva(
     'px-5',
     'py-2.5',
     'inline-flex justify-center items-center',
+    'disabled:bg-gray-600',
+    'dark:disabled:bg-gray-600'
   ],
   {
     variants: {

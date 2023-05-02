@@ -14,7 +14,8 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {},
   args: {
     content: 'default checkbox content',
-    modelValue: false
+    modelValue: false,
+    disabled: false,
   },
 }
 

@@ -29,7 +29,7 @@ export const Primary: Story = {
 
 export const Customize: Story = {
   args: {
-    checkboxCustomize: 'w-6 h-6 accent-green-600',
+    checkboxCustomize: 'w-6 h-6 accent-green-600 dark:accent-green-600',
     labelCustomize: 'text-lg',
   },
 }

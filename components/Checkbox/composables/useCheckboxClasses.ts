@@ -9,6 +9,7 @@ export const useCheckboxClasses = cva(
     'w-4',
     'h-4',
     'hover:cursor-pointer',
+    'disabled:hover:cursor-not-allowed',
     'disabled:accent-gray-600',
     'dark:disabled:accent-gray-600',
   ],
@@ -17,12 +18,11 @@ export const useCheckboxClasses = cva(
       intent: {
         primary: [
           'accent-blue-600',
-          'bg-gray-100',
           'border-gray-300',
           'focus:ring-blue-500',
           'dark:focus:ring-blue-600',
           'dark:ring-offset-gray-800',
-          'dark:bg-gray-700',
+          'dark:accent-blue-600',
           'dark:border-gray-600',
         ],
       },

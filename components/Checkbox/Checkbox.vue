@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center mb-4">
+  <div class="flex items-center">
     <input
       :id="id"
       v-bind="$attrs"

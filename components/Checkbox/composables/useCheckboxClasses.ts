@@ -10,8 +10,8 @@ export const useCheckboxClasses = cva(
     'h-4',
     'hover:cursor-pointer',
     'disabled:hover:cursor-not-allowed',
-    'disabled:accent-gray-600',
-    'dark:disabled:accent-gray-600',
+    'disabled:accent-gray-600 disabled:bg-gray-600',
+    'dark:disabled:accent-gray-600 dark:disabled:bg-gray-600',
   ],
   {
     variants: {

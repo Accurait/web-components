@@ -28,7 +28,7 @@ const props = defineProps({
   shape: {
     type: String as PropType<ButtonVariantProps['shape']>,
   },
-  customize: {
+  class: {
     type: String,
   },
   loading: {
@@ -53,7 +53,7 @@ const classes = computed(() =>
       color: props.color,
       shape: props.shape,
     }),
-    props.customize
+    props.class
   )
 )
 </script>

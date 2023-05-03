@@ -28,7 +28,7 @@ const props = defineProps({
   color: {
     type: String as PropType<SpinnerVariantProps['color']>,
   },
-  customize: {
+  class: {
     type: String,
   },
 })
@@ -39,7 +39,7 @@ const classes = computed(() =>
       size: props.size,
       color: props.color,
     }),
-    props.customize
+    props.class
   )
 )
 </script>

@@ -24,6 +24,6 @@ export const Primary: Story = {
 export const CustomizeColor: Story = {
   args: {
     size: 'md',
-    customize: 'fill-green-500',
+    class: 'fill-green-500',
   },
 }

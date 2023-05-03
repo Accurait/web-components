@@ -27,10 +27,11 @@ export const Primary: Story = {
   args: {},
 }
 
+// You might need to apply accent-color and background-color at the same time to make sure the styling of box color works in all browsers
 export const Customize: Story = {
   args: {
-    checkboxCustomize: 'w-6 h-6 accent-green-600 dark:accent-green-600',
-    labelCustomize: 'text-lg',
+    boxClass: 'w-6 h-6 accent-green-600 dark:accent-green-600',
+    labelClass: 'text-lg',
   },
 }
 

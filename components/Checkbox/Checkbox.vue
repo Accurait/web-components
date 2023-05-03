@@ -30,10 +30,10 @@ import {
 const id = nanoid()
 
 const props = defineProps({
-  checkboxCustomize: {
+  boxClass: {
     type: String,
   },
-  labelCustomize: {
+  labelClass: {
     type: String,
   },
   modelValue: {
@@ -45,8 +45,8 @@ const props = defineProps({
   },
 })
 
-const checkboxClasses = computed(() => twMerge(useCheckboxClasses(), props.checkboxCustomize))
-const labelClasses = computed(() => twMerge(useCheckboxLabelClasses(), props.labelCustomize))
+const checkboxClasses = computed(() => twMerge(useCheckboxClasses(), props.boxClass))
+const labelClasses = computed(() => twMerge(useCheckboxLabelClasses(), props.labelClass))
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void

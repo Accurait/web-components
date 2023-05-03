@@ -1,19 +1,3 @@
-<template>
-  <button
-    v-if="!props.to"
-    type="button"
-    :class="[...classes.split(' ')]"
-    v-bind="$attrs"
-    :disabled="disabled"
-  >
-    <Spinner v-if="loading" size="xs" />
-    <slot />
-  </button>
-  <NuxtLink v-if="props.to" :to="props.to" :class="[...classes.split(' ')]" v-bind="$attrs">
-    <slot />
-  </NuxtLink>
-</template>
-
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 import { ButtonVariantProps, useButtonClasses } from './composables/useButtonClasses'
@@ -57,3 +41,19 @@ const classes = computed(() =>
   )
 )
 </script>
+
+<template>
+  <button
+    v-if="!props.to"
+    type="button"
+    :class="[...classes.split(' ')]"
+    v-bind="$attrs"
+    :disabled="disabled"
+  >
+    <Spinner v-if="loading" size="xs" />
+    <slot />
+  </button>
+  <NuxtLink v-if="props.to" :to="props.to" :class="[...classes.split(' ')]" v-bind="$attrs">
+    <slot />
+  </NuxtLink>
+</template>

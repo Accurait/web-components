@@ -13,4 +13,4 @@ dist
 storybook-static
 stories
 # ignore tailwind output file
-assets/css/tailwind-output.css
+assets/**/tailwind-output.css

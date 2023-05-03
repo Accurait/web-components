@@ -1,22 +1,4 @@
-<template>
-  <div class="flex items-center justify-center">
-    <input
-      :id="id"
-      v-bind="$attrs"
-      type="checkbox"
-      :class="checkboxClasses"
-      :value="value"
-      :checked="modelValue"
-      @input="updateValue"
-    />
-    <label :for="id" :class="labelClasses">
-      <slot />
-    </label>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { nanoid } from 'nanoid'
 import {
@@ -58,3 +40,20 @@ const updateValue = (e: Event) => {
 </script>
 
 <style scoped></style>
+
+<template>
+  <div class="flex items-center justify-center">
+    <input
+      :id="id"
+      v-bind="$attrs"
+      type="checkbox"
+      :class="checkboxClasses"
+      :value="value"
+      :checked="modelValue"
+      @input="updateValue"
+    />
+    <label :for="id" :class="labelClasses">
+      <slot />
+    </label>
+  </div>
+</template>

@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('./components/Button/Button.vue')['default']
     Checkbox: typeof import('./components/Checkbox/Checkbox.vue')['default']
+    Panel: typeof import('./components/Panel/Panel.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Spinner: typeof import('./components/Spinner/Spinner.vue')['default']

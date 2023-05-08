@@ -10,7 +10,7 @@ export const usePanelClasses = cva(['p-4 mx-auto rounded-lg t-4 md:p-11'], {
       full: ['block'],
     },
     color: {
-      primary: ['bg-zinc-100', 'dark:bg-zinc-600', 'dark:text-white'],
+      primary: ['bg-zinc-100', 'dark:bg-zinc-700', 'dark:text-white'],
     },
   },
   defaultVariants: {

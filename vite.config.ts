@@ -1,16 +1,14 @@
 // vite.config.ts
 import { URL, fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
-import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     AutoImport({
-      imports: ['vue'],
-      dirs: ['./composables'],
-      vueTemplate: true,
+      imports: ['vue']
     }),
     Components({
       dirs: [

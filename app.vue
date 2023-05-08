@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button>click me</Button>
+    <NuxtWelcome />
   </div>
 </template>
 

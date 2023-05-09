@@ -9,12 +9,15 @@ import type { PropType } from 'vue'
 const props = defineProps({
   size: {
     type: String as PropType<SpinnerVariantProps['size']>,
+    default: undefined,
   },
   color: {
     type: String as PropType<SpinnerVariantProps['color']>,
+    default: undefined,
   },
   class: {
     type: String,
+    default: undefined,
   },
 })
 

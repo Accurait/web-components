@@ -4,8 +4,6 @@ import { nanoid } from 'nanoid'
 import {
   useCheckboxClasses,
   useCheckboxLabelClasses,
-  CheckboxVariantProps,
-  CheckboxLabelVariantProps,
 } from './composables/useCheckboxClasses'
 
 // create UID for checkbox
@@ -14,9 +12,11 @@ const id = nanoid()
 const props = defineProps({
   boxClass: {
     type: String,
+    default: undefined,
   },
   labelClass: {
     type: String,
+    default: undefined,
   },
   modelValue: {
     type: Boolean,
@@ -24,6 +24,7 @@ const props = defineProps({
   },
   value: {
     type: String,
+    default: undefined,
   },
 })
 

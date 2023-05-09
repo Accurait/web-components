@@ -9,15 +9,19 @@ import type { PropType } from 'vue'
 const props = defineProps({
   size: {
     type: String as PropType<ButtonVariantProps['size']>,
+    default: 'text-base',
   },
   color: {
     type: String as PropType<ButtonVariantProps['color']>,
+    default: undefined,
   },
   shape: {
     type: String as PropType<ButtonVariantProps['shape']>,
+    default: undefined,
   },
   class: {
     type: String,
+    default: undefined,
   },
   loading: {
     type: Boolean,
@@ -25,6 +29,8 @@ const props = defineProps({
   },
   to: {
     type: String,
+    required: false,
+    default: undefined,
   },
   disabled: {
     type: Boolean,

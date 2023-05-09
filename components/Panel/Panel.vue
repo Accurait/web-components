@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
-import { PanelVariantProps, usePanelClasses } from './composables/usePanelClasses'
+import {
+  PanelVariantProps,
+  usePanelClasses,
+} from './composables/usePanelClasses'
 
 const props = defineProps({
   size: {
@@ -9,11 +12,13 @@ const props = defineProps({
   },
   class: {
     type: String,
-    default: ''
+    default: '',
   },
 })
 
-const classes = computed(() => twMerge(usePanelClasses({ size: props.size }), props.class))
+const classes = computed(() =>
+  twMerge(usePanelClasses({ size: props.size }), props.class)
+)
 </script>
 
 <template>

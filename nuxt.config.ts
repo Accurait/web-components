@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     {
       path: join(currentDir, './components'),
       extensions: ['.vue'],
-      pathPrefix: false
-    }
-  ]
+      pathPrefix: false,
+    },
+  ],
 })

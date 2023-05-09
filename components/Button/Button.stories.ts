@@ -13,7 +13,8 @@ const meta: Meta<typeof Button> = {
       }
       return { args, onClick }
     },
-    template: '<Button v-bind="args" @click="onClick">{{args.content}}</Button>',
+    template:
+      '<Button v-bind="args" @click="onClick">{{args.content}}</Button>',
   }),
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },

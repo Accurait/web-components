@@ -39,7 +39,9 @@ export const useCheckboxClasses = cva(
 )
 
 // label classes
-export type CheckboxLabelVariantProps = VariantProps<typeof useCheckboxLabelClasses>
+export type CheckboxLabelVariantProps = VariantProps<
+  typeof useCheckboxLabelClasses
+>
 
 export const useCheckboxLabelClasses = cva(['ml-2', 'text-sm', 'font-medium'], {
   variants: {

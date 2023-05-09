@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { useSpinnerClasses, SpinnerVariantProps } from './composables/useSpinnerClasses'
+import {
+  useSpinnerClasses,
+  SpinnerVariantProps,
+} from './composables/useSpinnerClasses'
 import { twMerge } from 'tailwind-merge'
 
 const props = defineProps({

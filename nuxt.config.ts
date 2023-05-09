@@ -16,4 +16,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  build: {
+    transpile: ['primevue'],
+  },
 })

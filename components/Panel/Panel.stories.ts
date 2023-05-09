@@ -13,7 +13,11 @@ const meta: Meta<typeof Panel> = {
     template: '<Panel v-bind="args">{{args.content}}</Panel>',
   }),
   argTypes: {
-    size: { control: 'select', options: ['flexible', 'full'], defaultValue: 'flexible' },
+    size: {
+      control: 'select',
+      options: ['flexible', 'full'],
+      defaultValue: 'flexible',
+    },
   },
   args: {
     content: `  In esse consequat incididunt in.`,
@@ -24,8 +28,7 @@ const meta: Meta<typeof Panel> = {
 export default meta
 type Story = StoryObj<typeof Panel>
 
-export const Primary: Story = {
-}
+export const Primary: Story = {}
 
 export const Customize: Story = {
   args: {

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
-import { ButtonVariantProps, useButtonClasses } from './composables/useButtonClasses'
+import {
+  type ButtonVariantProps,
+  useButtonClasses,
+} from './composables/useButtonClasses'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   size: {
@@ -53,7 +57,12 @@ const classes = computed(() =>
     <Spinner v-if="loading" size="xs" />
     <slot />
   </button>
-  <NuxtLink v-if="props.to" :to="props.to" :class="[...classes.split(' ')]" v-bind="$attrs">
+  <NuxtLink
+    v-if="props.to"
+    :to="props.to"
+    :class="[...classes.split(' ')]"
+    v-bind="$attrs"
+  >
     <slot />
   </NuxtLink>
 </template>

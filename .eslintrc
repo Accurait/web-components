@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "@nuxt/eslint-config",
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [],
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
+    "@typescript-eslint/no-unused-vars": "off"
+  }
+}

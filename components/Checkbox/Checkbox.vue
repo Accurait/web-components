@@ -27,8 +27,12 @@ const props = defineProps({
   },
 })
 
-const checkboxClasses = computed(() => twMerge(useCheckboxClasses(), props.boxClass))
-const labelClasses = computed(() => twMerge(useCheckboxLabelClasses(), props.labelClass))
+const checkboxClasses = computed(() =>
+  twMerge(useCheckboxClasses(), props.boxClass)
+)
+const labelClasses = computed(() =>
+  twMerge(useCheckboxLabelClasses(), props.labelClass)
+)
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
@@ -38,8 +42,6 @@ const updateValue = (e: Event) => {
   emit('update:modelValue', (e.target as HTMLInputElement).checked)
 }
 </script>
-
-<style scoped></style>
 
 <template>
   <div class="flex items-center justify-center">
@@ -57,3 +59,5 @@ const updateValue = (e: Event) => {
     </label>
   </div>
 </template>
+
+<style scoped></style>

@@ -4,6 +4,7 @@ import {
   SpinnerVariantProps,
 } from './composables/useSpinnerClasses'
 import { twMerge } from 'tailwind-merge'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   size: {

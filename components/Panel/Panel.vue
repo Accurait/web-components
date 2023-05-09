@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 import {
-  PanelVariantProps,
+  type PanelVariantProps,
   usePanelClasses,
 } from './composables/usePanelClasses'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   size: {

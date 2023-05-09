@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 import {
-  ButtonVariantProps,
+  type ButtonVariantProps,
   useButtonClasses,
 } from './composables/useButtonClasses'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   size: {

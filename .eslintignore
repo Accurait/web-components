@@ -1,0 +1,19 @@
+# basic ignored files
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+.DS_Store
+# ignore storybook files
+.nuxt-storybook
+storybook-static
+stories
+# ignore tailwind output file
+assets/**/tailwind-output.css
+# ignore typescript generated files
+components.d.ts
+auto-imports.d.ts

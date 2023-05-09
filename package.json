@@ -14,7 +14,11 @@
     "watch:storybook": "storybook dev -p 6006",
     "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css",
     "build-storybook": "pnpm build:tailwind && storybook build",
-    "release": "pnpm version patch && pnpm publish --access public"
+    "release": "pnpm version patch && pnpm publish --access public",
+    "lint:js": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "lint:fix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",

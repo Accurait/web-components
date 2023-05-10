@@ -1,11 +1,12 @@
+import { setup } from '@storybook/vue3'
+import PrimeVue from 'primevue/config'
 import type { Preview } from '@storybook/vue3'
 
-/** Storybook is not able to find the tailwind css file automatically,
-    so we need to import it manually, and it is generated from the tailwind-input.css and content of the tailwind.config.js
-*/
+/**
+ * Storybook is not able to find the tailwind css file automatically,
+ * so we need to import it manually, and it is generated from the tailwind-input.css and content of the tailwind.config.js
+ */
 import '../assets/css/tailwind-output.css'
-// import { action } from '@storybook/addon-actions'
-import { setup } from '@storybook/vue3'
 
 const preview: Preview = {
   parameters: {
@@ -27,12 +28,14 @@ const preview: Preview = {
   },
 }
 
-// mock NuxtLink component as storybook cannot import it automatically
 setup((app) => {
+  // mock NuxtLink component as storybook cannot import it automatically
   app.component('NuxtLink', {
     props: ['to'],
     template: `<a :href="to"><slot /></a>`,
   })
+
+  app.use(PrimeVue)
 })
 
 export default preview

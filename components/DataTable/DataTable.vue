@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import DataTable from 'primevue/datatable'
+import type { PropType } from 'vue'
+
+defineProps({
+  value: {
+    type: Array as PropType<Record<string, unknown>[]>,
+    default: null,
+  },
+  dataKey: {
+    type: [String, Function],
+    default: null,
+  },
+})
 </script>
 
 <template>
-  <DataTable>
+  <DataTable :value="value" :data-key="dataKey">
     <!-- Header -->
     <template v-if="$slots.header" #header="slotProps">
       <slot name="header" v-bind="slotProps" />

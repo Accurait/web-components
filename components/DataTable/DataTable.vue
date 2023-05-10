@@ -4,7 +4,28 @@ import DataTable from 'primevue/datatable'
 
 <template>
   <DataTable>
+    <!-- Header -->
+    <template v-if="$slots.header" #header="slotProps">
+      <slot name="header" v-bind="slotProps" />
+    </template>
+
+    <!-- Default -->
     <slot />
+
+    <!-- Empty -->
+    <template v-if="$slots.empty" #empty="slotProps">
+      <slot name="empty" v-bind="slotProps" />
+    </template>
+
+    <!-- Loading -->
+    <template v-if="$slots.loading" #loading="slotProps">
+      <slot name="loading" v-bind="slotProps" />
+    </template>
+
+    <!-- Footer -->
+    <template v-if="$slots.footer" #footer="slotProps">
+      <slot name="footer" v-bind="slotProps" />
+    </template>
   </DataTable>
 </template>
 

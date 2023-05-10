@@ -11,11 +11,37 @@ defineProps({
     type: [String, Function],
     default: null,
   },
+  scrollable: {
+    type: Boolean,
+    default: false,
+  },
+  expandableRowGroups: {
+    type: Boolean,
+    default: false,
+  },
+  rowGroupMode: {
+    type: String as PropType<'subheader' | 'rowspan'>,
+    default: null,
+  },
+  groupRowsBy: {
+    type: [Array, String, Function],
+    default: null,
+  },
 })
+
+// TODO: Calculate child cell width by getting the parent cell
 </script>
 
 <template>
-  <DataTable :value="value" :data-key="dataKey">
+  <DataTable
+    ref="datatable"
+    :value="value"
+    :data-key="dataKey"
+    :scrollable="scrollable"
+    :expandable-row-groups="expandableRowGroups"
+    :row-group-mode="rowGroupMode"
+    :group-rows-by="groupRowsBy"
+  >
     <!-- Header -->
     <template v-if="$slots.header" #header="slotProps">
       <slot name="header" v-bind="slotProps" />
@@ -24,19 +50,32 @@ defineProps({
     <!-- Default -->
     <slot />
 
-    <!-- Empty -->
-    <template v-if="$slots.empty" #empty="slotProps">
-      <slot name="empty" v-bind="slotProps" />
+    <!-- Group  -->
+    <template v-if="$slots.groupheader" #groupheader="slotProps">
+      <slot name="groupheader" v-bind="slotProps" />
+    </template>
+    <template v-if="$slots.groupfooter" #groupfooter="slotProps">
+      <slot name="groupfooter" v-bind="slotProps" />
     </template>
 
-    <!-- Loading -->
-    <template v-if="$slots.loading" #loading="slotProps">
-      <slot name="loading" v-bind="slotProps" />
+    <!-- Expansion  -->
+    <template v-if="$slots.expansion" #expansion="slotProps">
+      <slot name="expansion" v-bind="slotProps" />
     </template>
 
     <!-- Footer -->
     <template v-if="$slots.footer" #footer="slotProps">
       <slot name="footer" v-bind="slotProps" />
+    </template>
+
+    <!-- Loading state -->
+    <template v-if="$slots.loading" #loading="slotProps">
+      <slot name="loading" v-bind="slotProps" />
+    </template>
+
+    <!-- Empty state -->
+    <template v-if="$slots.empty" #empty="slotProps">
+      <slot name="empty" v-bind="slotProps" />
     </template>
   </DataTable>
 </template>
@@ -294,4 +333,19 @@ defineProps({
 .p-datatable.p-datatable-lg .p-datatable-footer {
   @apply px-[1.875rem] py-[0.9375rem];
 }
+
+/* Scrollable */
+.p-datatable-scrollable > .p-datatable-wrapper {
+  overflow: inherit;
+}
+/* TODO: Add support to sticky for expandable rows. Need to calculate the top by getting the table thead */
+/*.p-datatable.p-datatable-scrollable*/
+/*  > .p-datatable-wrapper*/
+/*  > .p-datatable-table*/
+/*  > .p-datatable-tbody*/
+/*  > tr:not(.p-datatable-row-expansion) {*/
+/*  position: sticky;*/
+/*  top: 46px;*/
+/*  z-index: 1;*/
+/* }*/
 </style>

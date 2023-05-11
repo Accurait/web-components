@@ -1,16 +1,9 @@
 import { faker } from '@faker-js/faker'
+import { PropType } from 'vue'
 import DataTable from './DataTable.vue'
 import DataTableColumn from './DataTableColumn.vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-const meta: Meta<typeof DataTable> = {
-  title: 'DataTable',
-  component: DataTable,
-}
-
-//👇 This default export determines where your story goes in the story list
-export default meta
-type Story = StoryObj<typeof DataTable>
 type CompanyDto = {
   id?: string
   parentId?: string | null
@@ -28,6 +21,34 @@ type CompanyDto = {
 
 const companies: CompanyDto[] = createFakeCompanyArray(10, 20)
 
+const meta: Meta<typeof DataTable> = {
+  title: 'DataTable',
+  component: DataTable,
+  argTypes: {
+    value: { control: 'object' },
+    dataKey: { control: 'text' },
+    scrollable: { control: 'boolean' },
+    expandableRowGroups: { control: 'boolean' },
+    rowGroupMode: {
+      control: 'select',
+      options: ['none', 'subheader', 'rowspan'],
+      mapping: {
+        none: null,
+      },
+    },
+  },
+  args: {
+    value: companies,
+    dataKey: 'id',
+    scrollable: false,
+    expandableRowGroups: false,
+  },
+}
+
+//👇 This default export determines where your story goes in the story list
+export default meta
+type Story = StoryObj<typeof DataTable>
+
 export const Basic: Story = {
   render: (args) => ({
     components: { DataTable, DataTableColumn },
@@ -43,9 +64,7 @@ export const Basic: Story = {
     `,
   }),
   args: {
-    value: companies,
     dataKey: 'id',
-    scrollable: false,
   },
 }
 

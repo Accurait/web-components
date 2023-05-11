@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DataTable from 'primevue/datatable'
+import DataTable, { type DataTableSortMeta } from 'primevue/datatable'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -31,6 +31,30 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  sortField: {
+    type: [String, Function] as PropType<string | ((item: any) => string)>,
+    default: null,
+  },
+  sortOrder: {
+    type: Number,
+    default: null,
+  },
+  defaultSortOrder: {
+    type: Number,
+    default: 1,
+  },
+  multiSortMeta: {
+    type: Array as PropType<DataTableSortMeta[]>,
+    default: null,
+  },
+  sortMode: {
+    type: String as PropType<'single' | 'multiple'>,
+    default: 'single',
+  },
+  removableSort: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 // TODO: Calculate child cell width by getting the parent cell
@@ -46,6 +70,12 @@ defineProps({
     :row-group-mode="rowGroupMode"
     :group-rows-by="groupRowsBy"
     :striped-rows="striped"
+    :sort-field="sortField"
+    :sort-order="sortOrder"
+    :default-sort-order="defaultSortOrder"
+    :multi-sort-meta="multiSortMeta"
+    :sort-mode="sortMode"
+    :removable-sort="removableSort"
   >
     <!-- Header -->
     <template v-if="$slots.header" #header="slotProps">

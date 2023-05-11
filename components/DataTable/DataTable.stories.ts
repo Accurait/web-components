@@ -87,6 +87,59 @@ const meta: Meta<typeof DataTable> = {
       control: 'boolean',
       defaultValue: false,
     },
+    sortMode: {
+      description:
+        'Defines whether sorting works on single column or on multiple columns.',
+      control: 'radio',
+      options: ['single', 'multiple'],
+      defaultValue: 'single',
+    },
+    sortField: {
+      if: { arg: 'sortMode', eq: 'single' },
+      description:
+        'Property name or a getter function of a row data used for sorting by default',
+      control: {
+        type: 'select',
+        labels: companyFields,
+      },
+      options: Object.keys(companyFields),
+    },
+    sortOrder: {
+      if: { arg: 'sortField', exists: true },
+      description: 'Order to sort the data by default.',
+      control: {
+        type: 'select',
+        labels: {
+          '1': 'Ascending',
+          '-1': 'Descending',
+        },
+      },
+      options: [1, -1],
+    },
+    defaultSortOrder: {
+      if: { arg: 'sortMode', eq: 'single' },
+      description: 'Default sort order of an unsorted column.',
+      control: {
+        type: 'select',
+        labels: {
+          '1': 'Ascending',
+          '-1': 'Descending',
+        },
+      },
+      options: [1, -1],
+      defaultValue: 1,
+    },
+
+    multiSortMeta: {
+      if: { arg: 'sortMode', eq: 'multiple' },
+      description: 'An array of SortMeta objects to sort the data.',
+      control: 'object',
+    },
+    removableSort: {
+      description: 'When enabled, columns can have an un-sorted state.',
+      control: 'boolean',
+      defaultValue: false,
+    },
   },
   args: {
     value: companies,
@@ -94,6 +147,9 @@ const meta: Meta<typeof DataTable> = {
     striped: false,
     scrollable: false,
     expandableRowGroups: false,
+    sortMode: 'single',
+    defaultSortOrder: 1,
+    removableSort: false,
   },
 }
 
@@ -239,6 +295,49 @@ export const ExpandableRowGroup: Story = {
     rowGroupMode: 'subheader',
     groupRowsBy: 'name',
     expandableRowGroups: true,
+  },
+}
+
+export const Sortable: Story = {
+  render: (args) => ({
+    components: { DataTable, DataTableColumn },
+    setup() {
+      return { args }
+    },
+    template: `
+      <DataTable v-bind="args">
+        <DataTableColumn field="name" header="Name" sortable />
+        <DataTableColumn field="tradingName" header="Trading name" sortable />
+        <DataTableColumn field="notes" header="Notes" />
+      </DataTable>
+    `,
+  }),
+  args: {
+    sortField: 'name',
+    sortOrder: 1,
+  },
+}
+
+export const SortableMultiple: Story = {
+  render: (args) => ({
+    components: { DataTable, DataTableColumn },
+    setup() {
+      return { args }
+    },
+    template: `
+      <DataTable v-bind="args">
+        <DataTableColumn field="name" header="Name" sortable />
+        <DataTableColumn field="tradingName" header="Trading name" sortable />
+        <DataTableColumn field="notes" header="Notes" />
+      </DataTable>
+    `,
+  }),
+  args: {
+    sortMode: 'multiple',
+    multiSortMeta: [
+      { field: 'name', order: 1 },
+      { field: 'tradingName', order: -1 },
+    ],
   },
 }
 

@@ -174,6 +174,19 @@ export const Basic: Story = {
   args: {
     //
   },
+  parameters: {
+    controls: {
+      exclude: [
+        'sortMode',
+        'sortField',
+        'sortOrder',
+        'defaultSortOrder',
+        'multiSortMeta',
+        'removableSort',
+        'rowGroupMode',
+      ],
+    },
+  },
 }
 
 export const Empty: Story = {
@@ -193,6 +206,9 @@ export const Empty: Story = {
   args: {
     value: [],
   },
+  parameters: {
+    ...Basic.parameters,
+  },
 }
 
 export const Scrollable: Story = {
@@ -211,6 +227,9 @@ export const Scrollable: Story = {
   }),
   args: {
     scrollable: true,
+  },
+  parameters: {
+    ...Basic.parameters,
   },
 }
 
@@ -244,6 +263,9 @@ export const Expandable: Story = {
   args: {
     //
   },
+  parameters: {
+    ...Basic.parameters,
+  },
 }
 
 export const RowGroup: Story = {
@@ -268,6 +290,18 @@ export const RowGroup: Story = {
     rowGroupMode: 'subheader',
     groupRowsBy: 'name',
     scrollable: true,
+  },
+  parameters: {
+    controls: {
+      exclude: [
+        'sortMode',
+        'sortField',
+        'sortOrder',
+        'defaultSortOrder',
+        'multiSortMeta',
+        'removableSort',
+      ],
+    },
   },
 }
 
@@ -296,6 +330,18 @@ export const ExpandableRowGroup: Story = {
     groupRowsBy: 'name',
     expandableRowGroups: true,
   },
+  parameters: {
+    controls: {
+      exclude: [
+        'sortMode',
+        'sortField',
+        'sortOrder',
+        'defaultSortOrder',
+        'multiSortMeta',
+        'removableSort',
+      ],
+    },
+  },
 }
 
 export const Sortable: Story = {
@@ -315,6 +361,11 @@ export const Sortable: Story = {
   args: {
     sortField: 'name',
     sortOrder: 1,
+  },
+  parameters: {
+    controls: {
+      exclude: ['rowGroupMode'],
+    },
   },
 }
 
@@ -338,6 +389,11 @@ export const SortableMultiple: Story = {
       { field: 'name', order: 1 },
       { field: 'tradingName', order: -1 },
     ],
+  },
+  parameters: {
+    controls: {
+      exclude: ['rowGroupMode'],
+    },
   },
 }
 

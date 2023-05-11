@@ -14,8 +14,8 @@
     "release": "pnpm version patch && pnpm publish --access public",
     "lint:js": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lint:fix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lint": "pnpm lint:js && pnpm lint:prettier",
+    "lint:fix": "prettier --write --list-different . && pnpm lint:js --fix"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",

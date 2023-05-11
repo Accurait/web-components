@@ -19,6 +19,10 @@ const props = defineProps({
     type: String as PropType<ButtonVariantProps['shape']>,
     default: undefined,
   },
+  ring: {
+    type: Boolean as PropType<ButtonVariantProps['ring']>,
+    default: false,
+  },
   class: {
     type: String,
     default: undefined,
@@ -43,8 +47,9 @@ const disabled = computed(() => props.disabled || props.loading)
 const classes = computed(() =>
   twMerge(
     useButtonClasses({
-      size: props.size,
       color: props.color,
+      ring: props.ring,
+      size: props.size,
       shape: props.shape,
     }),
     props.class
@@ -53,9 +58,11 @@ const classes = computed(() =>
 </script>
 
 <template>
+  <p>{{ classes }}</p>
   <button
     v-if="!props.to"
     type="button"
+    role="button"
     :class="[...classes.split(' ')]"
     v-bind="$attrs"
     :disabled="disabled"
@@ -67,6 +74,7 @@ const classes = computed(() =>
     v-if="props.to"
     :to="props.to"
     :class="[...classes.split(' ')]"
+    role="link"
     v-bind="$attrs"
   >
     <slot />

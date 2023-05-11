@@ -10,9 +10,7 @@ export default <Config>{
     './node_modules/flowbite.{js,ts}',
     './stories/**/*.{js,vue,ts,mdx}',
   ],
-  theme: {
-    extend: {},
-  },
+  theme: {},
   plugins: [require('flowbite')],
   darkMode: ['class', '[data-mode="dark"]'],
 }

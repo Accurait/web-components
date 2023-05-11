@@ -17,14 +17,19 @@ const meta: Meta<typeof Button> = {
       '<Button v-bind="args" @click="onClick">{{args.content}}</Button>',
   }),
   argTypes: {
+    color: {
+      control: 'select',
+      options: ['primary', 'secondary', 'link'],
+    },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    color: { control: 'select', options: ['primary', 'secondary'] },
+    ring: { control: 'boolean', options: [false, true] },
     shape: { control: 'select', options: ['pill', 'default'] },
   },
   args: {
     content: 'Click me',
     loading: false,
     color: 'primary',
+    ring: false,
     disabled: false,
   },
 }

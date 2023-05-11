@@ -10,9 +10,7 @@ dist
 .DS_Store
 .idea
 # ignore storybook files
-.nuxt-storybook
 storybook-static
-stories
 # ignore typescript generated files
 components.d.ts
 auto-imports.d.ts

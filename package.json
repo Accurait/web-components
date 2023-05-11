@@ -28,7 +28,6 @@
     "@storybook/testing-library": "0.1.0",
     "@storybook/vue3": "7.0.9",
     "@storybook/vue3-vite": "7.0.9",
-    "concurrently": "^8.0.1",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-nuxt": "^4.0.0",

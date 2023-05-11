@@ -58,7 +58,6 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <p>{{ classes }}</p>
   <button
     v-if="!props.to"
     type="button"

@@ -13,8 +13,6 @@ dist
 .nuxt-storybook
 storybook-static
 stories
-# ignore tailwind output file
-assets/**/tailwind-output.css
 # ignore typescript generated files
 components.d.ts
 auto-imports.d.ts

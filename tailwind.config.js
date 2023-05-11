@@ -12,5 +12,5 @@ module.exports = {
     extend: {},
   },
   plugins: [require('flowbite')],
-  darkMode: 'class',
+  darkMode: ['class', '[data-mode="dark"]'],
 }

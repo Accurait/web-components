@@ -16,4 +16,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+  },
 })

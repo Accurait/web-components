@@ -25,8 +25,8 @@ const meta: Meta<typeof DataTable> = {
   title: 'DataTable',
   component: DataTable,
   argTypes: {
-    value: { control: 'object' },
-    dataKey: { control: 'text' },
+    value: { control: 'object', table: { disable: true } },
+    dataKey: { control: 'text', table: { disable: true } },
     striped: { control: 'boolean' },
     scrollable: { control: 'boolean' },
     expandableRowGroups: { control: 'boolean' },

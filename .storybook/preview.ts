@@ -1,11 +1,18 @@
-import type { Preview } from '@storybook/vue3'
+import { setup, type Preview } from '@storybook/vue3'
+import { withThemeByDataAttribute } from '@storybook/addon-styling'
 
-/** Storybook is not able to find the tailwind css file automatically,
-    so we need to import it manually, and it is generated from the tailwind-input.css and content of the tailwind.config.js
-*/
-import '../assets/css/tailwind-output.css'
-// import { action } from '@storybook/addon-actions'
-import { setup } from '@storybook/vue3'
+/**
+ * Storybook is not able to find the tailwind css file automatically, so we need to import it manually
+ */
+import '../assets/css/tailwind.css'
+
+// mock NuxtLink component as storybook cannot import it automatically
+setup((app) => {
+  app.component('NuxtLink', {
+    props: ['to'],
+    template: `<a :href="to"><slot /></a>`,
+  })
+})
 
 const preview: Preview = {
   parameters: {
@@ -27,12 +34,16 @@ const preview: Preview = {
   },
 }
 
-// mock NuxtLink component as storybook cannot import it automatically
-setup((app) => {
-  app.component('NuxtLink', {
-    props: ['to'],
-    template: `<a :href="to"><slot /></a>`,
-  })
-})
-
 export default preview
+
+/* tailwind light and dark theme switcher */
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      light: 'light',
+      dark: 'dark',
+    },
+    defaultTheme: 'light',
+    attributeName: 'data-mode',
+  }),
+]

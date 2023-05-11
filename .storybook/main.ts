@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-tailwind-dark-mode',
+    '@storybook/addon-styling',
   ],
   framework: {
     name: '@storybook/vue3-vite',

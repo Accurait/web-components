@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import { DataTableSortMeta } from 'primevue/datatable'
 import { PropType } from 'vue'
 import DataTable from './DataTable.vue'
 import DataTableColumn from './DataTableColumn.vue'
@@ -19,23 +20,72 @@ type CompanyDto = {
   modules?: any
 }
 
+const companyFields: Record<keyof CompanyDto, string> = {
+  id: 'Id',
+  parentId: 'Parent Id',
+  name: 'Name',
+  tradingName: 'Trading Name',
+  businessNumber: 'Business Number',
+  taxFileNumber: 'Tax File Number',
+  branch: 'Branch',
+  brands: 'Brands',
+  countryId: 'Country Id',
+  notes: 'Notes',
+  companies: 'Companies',
+  modules: 'Modules',
+}
+
 const companies: CompanyDto[] = createFakeCompanyArray(10, 20)
 
 const meta: Meta<typeof DataTable> = {
   title: 'DataTable',
   component: DataTable,
   argTypes: {
-    value: { control: 'object', table: { disable: true } },
-    dataKey: { control: 'text', table: { disable: true } },
-    striped: { control: 'boolean' },
-    scrollable: { control: 'boolean' },
-    expandableRowGroups: { control: 'boolean' },
+    value: {
+      description: 'An array of objects to display.',
+      control: false,
+    },
+    dataKey: {
+      description:
+        'Name of the field that uniquely identifies the a record in the data.',
+      control: false,
+    },
+    striped: {
+      description: 'Whether to displays rows with alternating colors.',
+      control: 'boolean',
+      defaultValue: false,
+    },
+    scrollable: {
+      description:
+        'When specified, enables horizontal and/or vertical scrolling.',
+      control: 'boolean',
+      defaultValue: false,
+    },
     rowGroupMode: {
-      control: 'select',
-      options: ['none', 'subheader', 'rowspan'],
-      mapping: {
-        none: null,
+      description: 'Defines the row group mode.',
+      control: {
+        type: 'select',
+        labels: {
+          subheader: 'Subheader',
+          rowspan: 'RowSpan',
+        },
       },
+      options: ['subheader', 'rowspan'],
+    },
+    groupRowsBy: {
+      if: { arg: 'rowGroupMode', exists: true },
+      description: ' One or more field names to use in row grouping.',
+      control: {
+        type: 'select',
+        labels: companyFields,
+      },
+      options: Object.keys(companyFields),
+    },
+    expandableRowGroups: {
+      if: { arg: 'rowGroupMode', exists: true },
+      description: 'Whether the row groups can be expandable',
+      control: 'boolean',
+      defaultValue: false,
     },
   },
   args: {
@@ -66,7 +116,7 @@ export const Basic: Story = {
     `,
   }),
   args: {
-    dataKey: 'id',
+    //
   },
 }
 
@@ -85,7 +135,6 @@ export const Empty: Story = {
     `,
   }),
   args: {
-    ...Basic.args,
     value: [],
   },
 }
@@ -105,7 +154,6 @@ export const Scrollable: Story = {
     `,
   }),
   args: {
-    ...Basic.args,
     scrollable: true,
   },
 }
@@ -138,7 +186,7 @@ export const Expandable: Story = {
     `,
   }),
   args: {
-    ...Basic.args,
+    //
   },
 }
 
@@ -161,7 +209,6 @@ export const RowGroup: Story = {
     `,
   }),
   args: {
-    ...Basic.args,
     rowGroupMode: 'subheader',
     groupRowsBy: 'name',
     scrollable: true,
@@ -188,11 +235,10 @@ export const ExpandableRowGroup: Story = {
     `,
   }),
   args: {
-    ...Basic.args,
-    expandableRowGroups: true,
+    scrollable: true,
     rowGroupMode: 'subheader',
     groupRowsBy: 'name',
-    scrollable: true,
+    expandableRowGroups: true,
   },
 }
 

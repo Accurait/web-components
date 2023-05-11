@@ -27,6 +27,10 @@ defineProps({
     type: [Array, String, Function],
     default: null,
   },
+  striped: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 // TODO: Calculate child cell width by getting the parent cell
@@ -41,6 +45,7 @@ defineProps({
     :expandable-row-groups="expandableRowGroups"
     :row-group-mode="rowGroupMode"
     :group-rows-by="groupRowsBy"
+    :striped-rows="striped"
   >
     <!-- Header -->
     <template v-if="$slots.header" #header="slotProps">

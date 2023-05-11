@@ -27,6 +27,7 @@ const meta: Meta<typeof DataTable> = {
   argTypes: {
     value: { control: 'object' },
     dataKey: { control: 'text' },
+    striped: { control: 'boolean' },
     scrollable: { control: 'boolean' },
     expandableRowGroups: { control: 'boolean' },
     rowGroupMode: {
@@ -40,6 +41,7 @@ const meta: Meta<typeof DataTable> = {
   args: {
     value: companies,
     dataKey: 'id',
+    striped: false,
     scrollable: false,
     expandableRowGroups: false,
   },

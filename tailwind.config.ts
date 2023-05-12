@@ -11,6 +11,6 @@ export default <Config>{
     './stories/**/*.{js,vue,ts,mdx}',
   ],
   theme: {},
-  plugins: [require('flowbite')],
+  plugins: [require('flowbite'), require('@headlessui/tailwindcss')],
   darkMode: ['class', '[data-mode="dark"]'],
 }

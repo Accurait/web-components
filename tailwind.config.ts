@@ -1,4 +1,18 @@
 import type { Config } from 'tailwindcss'
+import TwColors from 'tailwindcss/colors'
+
+const colors = {
+  'btn-primary': {
+    DEFAULT: TwColors.blue['500'],
+    text: 'white',
+    ring: TwColors.blue['300'],
+  },
+  'btn-secondary': {
+    DEFAULT: TwColors.gray['500'],
+    text: 'white',
+    ring: TwColors.gray['300'],
+  },
+}
 
 export default <Config>{
   content: [
@@ -10,7 +24,11 @@ export default <Config>{
     './node_modules/flowbite.{js,ts}',
     './stories/**/*.{js,vue,ts,mdx}',
   ],
-  theme: {},
-  plugins: [require('flowbite'), require('@headlessui/tailwindcss')],
+  theme: {
+    extend: {
+      colors,
+    },
+  },
+  plugins: [require('flowbite')],
   darkMode: ['class', '[data-mode="dark"]'],
 }

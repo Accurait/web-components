@@ -17,9 +17,9 @@ export const useButtonClasses = cva(
   {
     variants: {
       color: {
-        primary: ['btn-primary'],
-        secondary: ['btn-secondary'],
-        link: ['btn-link'],
+        primary: ['bg-btn-primary text-btn-primary-text'],
+        secondary: ['bg-tn-secondary text-btn-secondary-text'],
+        link: ['bg-btn-link'],
       },
       size: {
         sm: ['text-xs', 'px-3', 'py-2'],
@@ -39,12 +39,12 @@ export const useButtonClasses = cva(
       {
         color: 'primary',
         ring: true,
-        class: 'btn-ring-primary',
+        class: 'ring-btn-primary-ring',
       },
       {
         color: 'secondary',
         ring: true,
-        class: 'btn-ring-secondary',
+        class: 'ring-btn-secondary-ring',
       },
       {
         color: 'link',

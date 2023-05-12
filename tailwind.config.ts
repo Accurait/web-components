@@ -1,16 +1,16 @@
 import type { Config } from 'tailwindcss'
-import TwColors from 'tailwindcss/colors'
+import { blue, gray } from 'tailwindcss/colors'
 
 const colors = {
   'btn-primary': {
-    DEFAULT: TwColors.blue['500'],
+    DEFAULT: blue['500'],
     text: 'white',
-    ring: TwColors.blue['300'],
+    ring: blue['300'],
   },
   'btn-secondary': {
-    DEFAULT: TwColors.gray['500'],
+    DEFAULT: gray['500'],
     text: 'white',
-    ring: TwColors.gray['300'],
+    ring: gray['300'],
   },
 }
 

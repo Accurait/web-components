@@ -12,12 +12,14 @@ const meta: Meta<typeof Disclosure> = {
     },
     template: `
     <Disclosure v-bind="args">
-      <div class="px-4 pt-4 pb-2 text-sm text-gray-500">Content to display</div>
+      <div class="bg-gray-300 px-4 pt-4 pb-2 text-sm text-gray-500 rounded mt-2">Content to display</div>
     </Disclosure>`,
   }),
   argTypes: {},
   args: {
     buttonContent: 'Show or hide content',
+    unmount: false,
+    defaultOpen: false,
   },
 }
 

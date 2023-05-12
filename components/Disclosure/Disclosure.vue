@@ -19,6 +19,16 @@ const props = defineProps({
   class: {
     type: String,
   },
+  // unmount the panel when it is closed
+  unmount: {
+    type: Boolean,
+    default: false,
+  },
+  // keep the panel open by default
+  defaultOpen: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const classes = computed(() => twMerge(useDisclosureClasses({}), props.class))
@@ -28,10 +38,15 @@ const buttonClasses = computed(() =>
 </script>
 
 <template>
-  <Disclosure as="div" v-slot="{ open }" :class="[...classes.split(' ')]">
+  <Disclosure
+    as="div"
+    v-slot="{ open, close }"
+    :class="[...classes.split(' ')]"
+    :default-open="props.defaultOpen"
+  >
     <!-- Use the `open` state to conditionally change the direction of an icon. -->
     <DisclosureButton :class="[...buttonClasses.split(' ')]">
-      <span>{{  props.buttonContent  }}</span>
+      <span>{{ props.buttonContent }}</span>
       <slot name="button">
         <svg
           class="ml-2 h-5 w-5"
@@ -51,8 +66,8 @@ const buttonClasses = computed(() =>
         </svg>
       </slot>
     </DisclosureButton>
-    <DisclosurePanel>
-      <slot></slot>
+    <DisclosurePanel :unmount="props.unmount">
+      <slot :close="close"></slot>
     </DisclosurePanel>
   </Disclosure>
 </template>

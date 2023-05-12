@@ -18,6 +18,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "pnpm version patch && pnpm publish --access public",
+    "publish": "pnpm publish --access public",
     "lint:js": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lint:prettier": "prettier --check .",
     "lint": "pnpm lint:js && pnpm lint:prettier",

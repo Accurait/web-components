@@ -5,36 +5,21 @@ export type ButtonVariantProps = VariantProps<typeof useButtonClasses>
 
 export const useButtonClasses = cva(
   [
-    'text-white',
     'focus:ring-4',
     'focus:outline-none',
-    'focus:ring-blue-300',
     'font-medium',
     'rounded-lg',
     'text-sm',
     'px-5',
     'py-2.5',
     'inline-flex justify-center items-center',
-    'disabled:bg-gray-600',
-    'dark:disabled:bg-gray-600',
   ],
   {
     variants: {
       color: {
-        primary: [
-          'bg-blue-700',
-          'hover:bg-blue-800',
-          'dark:bg-blue-600',
-          'dark:hover:bg-blue-700',
-          'dark:focus:ring-blue-800',
-        ],
-        secondary: [
-          'bg-gray-700',
-          'hover:bg-gray-800',
-          'dark:bg-gray-600',
-          'dark:hover:bg-gray-700',
-          'dark:focus:ring-gray-800',
-        ],
+        primary: ['bg-btn-primary text-btn-primary-text'],
+        secondary: ['bg-tn-secondary text-btn-secondary-text'],
+        link: ['bg-btn-link'],
       },
       size: {
         sm: ['text-xs', 'px-3', 'py-2'],
@@ -44,10 +29,33 @@ export const useButtonClasses = cva(
       shape: {
         pill: ['rounded-full'],
       },
+      ring: {
+        false: ['focus:ring-0'],
+        true: ['focus:ring-4'],
+      },
     },
+
+    compoundVariants: [
+      {
+        color: 'primary',
+        ring: true,
+        class: 'ring-btn-primary-ring',
+      },
+      {
+        color: 'secondary',
+        ring: true,
+        class: 'ring-btn-secondary-ring',
+      },
+      {
+        color: 'link',
+        ring: true,
+        class: 'focus:ring-0',
+      },
+    ],
     defaultVariants: {
-      color: 'primary',
       size: 'md',
+      ring: false,
+      color: 'primary',
     },
   }
 )

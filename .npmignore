@@ -10,8 +10,5 @@ dist
 .DS_Store
 .vscode
 # ignore storybook files
-.nuxt-storybook
 storybook-static
 stories
-# ignore tailwind output file
-assets/**/tailwind-output.css

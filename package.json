@@ -24,6 +24,7 @@
     "lint:fix": "prettier --write --list-different . && pnpm lint:js --fix"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@nuxt/eslint-config": "^0.1.1",
     "@storybook/addon-essentials": "7.0.10",
     "@storybook/addon-interactions": "7.0.10",
@@ -63,6 +64,7 @@
     "class-variance-authority": "^0.6.0",
     "flowbite": "^1.6.5",
     "nanoid": "^4.0.2",
+    "primevue": "^3.28.0",
     "tailwind-merge": "^1.12.0"
   },
   "pnpm": {

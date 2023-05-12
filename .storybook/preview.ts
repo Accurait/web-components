@@ -1,5 +1,6 @@
 import { setup, type Preview } from '@storybook/vue3'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
+import PrimeVue from 'primevue/config'
 
 /**
  * Storybook is not able to find the tailwind css file automatically, so we need to import it manually
@@ -12,6 +13,7 @@ setup((app) => {
     props: ['to'],
     template: `<a :href="to"><slot /></a>`,
   })
+  app.use(PrimeVue)
 })
 
 const preview: Preview = {
@@ -22,6 +24,7 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+      expanded: true,
     },
   },
   globalTypes: {

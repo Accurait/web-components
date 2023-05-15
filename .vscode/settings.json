@@ -1,31 +1,66 @@
 {
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#d4bf9e",
-    "activityBar.background": "#d4bf9e",
-    "activityBar.activeBorder": "#d4bf9e",
-    "activityBar.inactiveBackground": "#706145",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBar.dropBackground": "#706145",
-    "activityBarBadge.background": "#3b8468",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "commandCenter.border": "#15202b99",
-    "commandCenter.background": "#706145",
-    "commandCenter.activeBackground": "#433a29",
-    "commandCenter.activeBorder": "#433a29",
-    "commandCenter.activeForeground": "#c4a87b",
-    "commandCenter.foreground": "#d4bf9e",
-    "sash.hoverBorder": "#d4bf9e",
-    "statusBar.background": "#c4a87b",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#b49158",
-    "statusBarItem.remoteBackground": "#c4a87b",
-    "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#c4a87b",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#c4a87b99",
-    "titleBar.inactiveForeground": "#15202b99",
-    "menu.border": "#041A16"
+  "editor.tabSize": 2,
+  // Use `eslint` for vue, ts and js
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
-  "peacock.color": "#c4a87b"
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[js]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[ts]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  // Tailwind Support, see https://tailwindcss.nuxt.dev/tailwind/editor-support
+  "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
+
+  // Auto-complete `.value` attribute when volar is installed
+  "volar.autoCompleteRefs": true,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.sass": "tailwindcss",
+    "*.postss": "tailwindcss",
+    "*.scss": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#706145",
+    "activityBar.background": "#d4bf9e",
+    "activityBar.inactiveBackground": "#15202b",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b70",
+    "activityBar.dropBackground": "#d4bf9e",
+    "activityBar.activeBorder": "#706145",
+
+    "activityBarBadge.background": "#706145",
+    "activityBarBadge.foreground": "#d4bf9e",
+
+    "statusBar.background": "#d4bf9e",
+    "statusBar.foreground": "#15202b",
+
+    "statusBarItem.hoverBackground": "#706145",
+    "statusBarItem.remoteBackground": "#d4bf9e",
+    "statusBarItem.remoteForeground": "#15202b",
+
+    "titleBar.activeBackground": "#706145",
+    "titleBar.activeForeground": "#041A16",
+    "titleBar.inactiveBackground": "#706145",
+    "titleBar.inactiveForeground": "#15202b",
+    "commandCenter.border": "#62553c",
+    "commandCenter.background": "#62553c",
+    "commandCenter.activeBackground": "#584c36",
+    "commandCenter.activeBorder": "#584c36",
+    "commandCenter.activeForeground": "#d4bf9e",
+    "commandCenter.foreground": "#d4bf9e",
+
+    "menu.border":"#041A16",
+  },
 }

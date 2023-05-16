@@ -368,6 +368,9 @@ defineProps({
 .p-datatable.p-datatable-lg .p-datatable-footer {
   @apply px-[1.875rem] py-[0.9375rem];
 }
+.p-datatable-row-expansion > td {
+  @apply p-0;
+}
 
 /* Scrollable */
 .p-datatable-scrollable > .p-datatable-wrapper {

@@ -143,7 +143,7 @@ defineProps({
   @apply ml-2 text-zinc-500;
 }
 .p-datatable .p-sortable-column .p-sortable-column-badge {
-  @apply ml-2 h-[1.143rem] min-w-[1.143rem] rounded-[50%] bg-indigo-50 leading-[1.143rem] text-indigo-900;
+  @apply bg-primary-50 text-primary-900 ml-2 h-[1.143rem] min-w-[1.143rem] rounded-[50%] leading-[1.143rem];
 }
 .p-datatable .p-sortable-column:not(.p-highlight):hover {
   @apply bg-zinc-100 text-zinc-700;
@@ -199,10 +199,10 @@ defineProps({
   @apply font-medium;
 }
 .p-datatable .p-datatable-tbody > tr:focus {
-  @apply outline outline-2 outline-indigo-500;
+  @apply outline-primary-500 outline outline-2;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
-  @apply bg-indigo-50 text-indigo-900;
+  @apply bg-primary-50 text-primary-900;
 }
 .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
   @apply shadow-[inset_0_2px_0_0_#4f46e5] shadow-[inset_0_2px_0_0_#eef2ff];
@@ -324,19 +324,19 @@ defineProps({
 .p-datatable.p-datatable-striped
   .p-datatable-tbody
   > tr:nth-child(even).p-highlight {
-  @apply bg-indigo-50 text-indigo-900;
+  @apply bg-primary-50 text-primary-900;
 }
 .p-datatable.p-datatable-striped
   .p-datatable-tbody
   > tr:nth-child(even).p-highlight
   .p-row-toggler {
-  @apply text-indigo-900;
+  @apply text-primary-900;
 }
 .p-datatable.p-datatable-striped
   .p-datatable-tbody
   > tr:nth-child(even).p-highlight
   .p-row-toggler:hover {
-  @apply text-indigo-900;
+  @apply text-primary-900;
 }
 .p-datatable.p-datatable-sm .p-datatable-header {
   @apply p-2.5;

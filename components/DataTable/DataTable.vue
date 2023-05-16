@@ -154,19 +154,19 @@ defineProps({
   @apply text-zinc-500;
 }
 .p-datatable .p-sortable-column.p-highlight {
-  @apply bg-zinc-50 text-indigo-600 hover:text-indigo-600;
+  @apply text-primary hover:text-primary bg-zinc-50;
 }
 .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
-  @apply text-indigo-600;
+  @apply text-primary;
 }
 .p-datatable .p-sortable-column.p-highlight:hover {
   @apply bg-zinc-100;
 }
 .p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {
-  @apply text-indigo-600;
+  @apply text-primary;
 }
 .p-datatable .p-sortable-column:focus {
-  @apply shadow-[inset_0_0_0_0.15rem_#6366f1] outline-0;
+  @apply shadow-[inset_0_0_0_0.15rem_#cccccc] outline-0;
 }
 .p-datatable .p-datatable-tbody > tr {
   @apply bg-white text-zinc-700 transition-none focus:outline-offset-[-0.15rem];
@@ -190,7 +190,7 @@ defineProps({
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:focus,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:focus,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:focus {
-  @apply shadow-[0_0_0_1px_#6366f1] outline-0 outline-offset-0;
+  @apply shadow-[0_0_0_1px_#cccccc] outline-0 outline-offset-0;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {
   @apply mr-2;
@@ -216,7 +216,7 @@ defineProps({
   @apply bg-zinc-100 text-zinc-700;
 }
 .p-datatable .p-column-resizer-helper {
-  @apply bg-indigo-600;
+  @apply bg-primary;
 }
 .p-datatable .p-datatable-scrollable-header,
 .p-datatable .p-datatable-scrollable-footer {

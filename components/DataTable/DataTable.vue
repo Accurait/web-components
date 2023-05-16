@@ -171,8 +171,14 @@ defineProps({
 .p-datatable .p-datatable-tbody > tr {
   @apply bg-white text-zinc-700 transition-none focus:outline-offset-[-0.15rem];
 }
+.p-datatable .p-datatable-tbody .p-datatable-row-expansion > td {
+  @apply p-0;
+}
 .p-datatable .p-datatable-tbody > tr > td {
   @apply border-b border-solid border-zinc-100 px-6 py-4 text-left;
+}
+.p-datatable .p-datatable-tbody .p-datatable-row-expansion > td {
+  @apply p-0;
 }
 .p-datatable .p-datatable-tbody > tr > td .p-row-toggler,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,
@@ -367,9 +373,6 @@ defineProps({
 }
 .p-datatable.p-datatable-lg .p-datatable-footer {
   @apply px-[1.875rem] py-[0.9375rem];
-}
-.p-datatable-row-expansion > td {
-  @apply p-0;
 }
 
 /* Scrollable */

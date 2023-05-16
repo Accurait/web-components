@@ -199,7 +199,7 @@ defineProps({
   @apply font-medium;
 }
 .p-datatable .p-datatable-tbody > tr:focus {
-  @apply outline-primary-500 outline outline-2;
+  @apply outline-none outline-0;
 }
 .p-datatable .p-datatable-tbody > tr.p-highlight {
   @apply bg-primary-50 text-primary-900;

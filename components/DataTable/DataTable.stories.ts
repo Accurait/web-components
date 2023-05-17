@@ -164,7 +164,7 @@ export const Basic: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
         <DataTableColumn field="notes" header="Notes" />
@@ -196,7 +196,7 @@ export const Empty: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
         <DataTableColumn field="notes" header="Notes" />
@@ -218,7 +218,7 @@ export const Scrollable: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
         <DataTableColumn field="notes" header="Notes" />
@@ -242,7 +242,7 @@ export const Expandable: Story = {
       return { args, expandedRows }
     },
     template: `
-      <DataTable v-model:expandedRows="expandedRows" v-bind="args">
+      <DataTable v-model:expandedRows="expandedRows" v-bind="args" class="p-default-theme">
         <DataTableColumn expander class="w-4 !p-0 !pl-2 m-0" />
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
@@ -250,7 +250,7 @@ export const Expandable: Story = {
 
         <template #expansion="slotProps">
           <div class="pl-4">
-            <DataTable :value="slotProps.data.companies">
+            <DataTable :value="slotProps.data.companies" class="p-default-theme">
               <DataTableColumn field="name" header="Name" />
               <DataTableColumn field="tradingName" header="Trading name" />
               <DataTableColumn field="notes" header="Notes" />
@@ -275,7 +275,7 @@ export const RowGroup: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
         <DataTableColumn field="notes" header="Notes" />
@@ -313,7 +313,7 @@ export const ExpandableRowGroup: Story = {
       return { args, expandedRowGroups }
     },
     template: `
-      <DataTable v-model:expandedRowGroups="expandedRowGroups" v-bind="args">
+      <DataTable v-model:expandedRowGroups="expandedRowGroups" v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" />
         <DataTableColumn field="tradingName" header="Trading name" />
         <DataTableColumn field="notes" header="Notes" />
@@ -351,7 +351,7 @@ export const Sortable: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" sortable />
         <DataTableColumn field="tradingName" header="Trading name" sortable />
         <DataTableColumn field="notes" header="Notes" />
@@ -376,7 +376,7 @@ export const SortableMultiple: Story = {
       return { args }
     },
     template: `
-      <DataTable v-bind="args">
+      <DataTable v-bind="args" class="p-default-theme">
         <DataTableColumn field="name" header="Name" sortable />
         <DataTableColumn field="tradingName" header="Trading name" sortable />
         <DataTableColumn field="notes" header="Notes" />

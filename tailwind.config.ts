@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { blue, gray } from 'tailwindcss/colors'
+import { blue, gray, green } from 'tailwindcss/colors'
 
 const colors = {
   'btn-primary': {
@@ -12,6 +12,8 @@ const colors = {
     text: 'white',
     ring: gray['300'],
   },
+  primary: blue,
+  secondary: green,
 }
 
 export default <Config>{

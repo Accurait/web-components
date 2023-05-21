@@ -1,5 +1,7 @@
-<script setup>
+<script lang="ts" setup>
 import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom'
+import { useTooltipClasses } from './composables/useTooltipClasses'
+import { twMerge } from 'tailwind-merge'
 
 const props = defineProps({
   content: {
@@ -9,6 +11,10 @@ const props = defineProps({
   placement: {
     type: String,
     default: 'bottom',
+  },
+  class: {
+    type: String,
+    default: undefined,
   },
 })
 
@@ -63,6 +69,21 @@ function show() {
   isHidden.value = false
   calculatePosition()
 }
+
+const classes = computed(() =>
+  twMerge(useTooltipClasses(), props.class, isHidden.value ? 'hidden' : '')
+)
+
+const classesArrow = computed(() => {
+  const prefix = 'bg-'
+  const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`)
+  const match = props.class?.match(regex)
+
+  return twMerge(
+    'absolute h-[8px] w-[8px] rotate-45 bg-gray-700 z-[-1]',
+    match ? match[0] : ''
+  )
+})
 </script>
 
 <template>
@@ -77,18 +98,9 @@ function show() {
     >
       <slot />
     </div>
-    <div
-      ref="floatingRef"
-      :class="[
-        'absolute left-0 top-0 z-50 cursor-default rounded-md bg-gray-700 px-3 py-1.5 text-sm text-white',
-        isHidden && 'hidden',
-      ]"
-    >
+    <div ref="floatingRef" :class="[...classes.split(' ')]">
       {{ props.content }}
-      <div
-        ref="arrowRef"
-        class="absolute h-[8px] w-[8px] rotate-45 bg-gray-700"
-      ></div>
+      <div ref="arrowRef" :class="[...classesArrow.split(' ')]"></div>
     </div>
   </div>
 </template>

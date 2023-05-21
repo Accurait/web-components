@@ -11,9 +11,12 @@ const meta: Meta<typeof Tooltip> = {
       return { args }
     },
     template: `
-      <Tooltip class="flex mt-10 justify-center" :placement="args.placement" v-bind="args" :content="args.content">
-        <span>hover me</span>
-      </Tooltip>`,
+      <div class="flex mt-10 justify-center">
+        <Tooltip :placement="args.placement" :class="args.class" v-bind="args" :content="args.content">
+          <span>hover me</span>
+        </Tooltip>
+      </div>
+    `,
   }),
   argTypes: {
     placement: {
@@ -24,6 +27,7 @@ const meta: Meta<typeof Tooltip> = {
   args: {
     placement: 'bottom',
     content: 'Show tip',
+    class: '',
   },
 }
 

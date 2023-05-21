@@ -16,6 +16,10 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
+  outerClass: {
+    type: String,
+    default: undefined,
+  },
 })
 
 const referenceRef = ref()
@@ -74,6 +78,8 @@ const classes = computed(() =>
   twMerge(useTooltipClasses(), props.class, isHidden.value ? 'hidden' : '')
 )
 
+const outerClasses = computed(() => twMerge(props.outerClass, 'inline-block'))
+
 const classesArrow = computed(() => {
   //check if there is bg color on classes props and use it on arrow too
   function extractWordsWithPrefix(prefix: string): string[] {
@@ -91,20 +97,18 @@ const classesArrow = computed(() => {
 </script>
 
 <template>
-  <div class="inline-block">
-    <div
-      ref="referenceRef"
-      class="inline-block"
-      @blur="hide"
-      @focus="show"
-      @mouseenter="show"
-      @mouseleave="hide"
-    >
-      <slot />
-    </div>
-    <div ref="floatingRef" :class="[...classes.split(' ')]">
-      {{ props.content }}
-      <div ref="arrowRef" :class="[...classesArrow.split(' ')]"></div>
-    </div>
+  <div
+    ref="referenceRef"
+    :class="outerClasses"
+    @blur="hide"
+    @focus="show"
+    @mouseenter="show"
+    @mouseleave="hide"
+  >
+    <slot />
+  </div>
+  <div ref="floatingRef" :class="[...classes.split(' ')]">
+    {{ props.content }}
+    <div ref="arrowRef" :class="[...classesArrow.split(' ')]"></div>
   </div>
 </template>

@@ -80,7 +80,7 @@ const classesArrow = computed(() => {
   const match = props.class?.match(regex)
 
   return twMerge(
-    'absolute h-[8px] w-[8px] rotate-45 bg-gray-700 z-[-1]',
+    'absolute h-[8px] w-[8px] rotate-45 bg-gray-800 z-[-1]',
     match ? match[0] : ''
   )
 })

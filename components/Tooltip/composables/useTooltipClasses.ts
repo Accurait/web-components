@@ -19,7 +19,6 @@ export const useTooltipClasses = cva(
   ],
   {
     variants: {},
-
     compoundVariants: [],
     defaultVariants: {},
   }

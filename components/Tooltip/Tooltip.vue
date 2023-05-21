@@ -74,13 +74,13 @@ function show() {
   calculatePosition()
 }
 
-const classes = computed(() =>
+const tooltipClasses = computed(() =>
   twMerge(useTooltipClasses(), props.class, isHidden.value ? 'hidden' : '')
 )
 
-const outerClasses = computed(() => twMerge(props.outerClass, 'inline-block'))
+const outerClasses = computed(() => twMerge('inline-block', props.outerClass))
 
-const classesArrow = computed(() => {
+const arrorClasses = computed(() => {
   //check if there is bg color on classes props and use it on arrow too
   function extractWordsWithPrefix(prefix: string): string[] {
     const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`, 'g')
@@ -99,7 +99,7 @@ const classesArrow = computed(() => {
 <template>
   <div
     ref="referenceRef"
-    :class="outerClasses"
+    :class="[...outerClasses.split(' ')]"
     @blur="hide"
     @focus="show"
     @mouseenter="show"
@@ -107,8 +107,8 @@ const classesArrow = computed(() => {
   >
     <slot />
   </div>
-  <div ref="floatingRef" :class="[...classes.split(' ')]">
+  <div ref="floatingRef" :class="[...tooltipClasses.split(' ')]">
     {{ props.content }}
-    <div ref="arrowRef" :class="[...classesArrow.split(' ')]"></div>
+    <div ref="arrowRef" :class="[...arrorClasses.split(' ')]"></div>
   </div>
 </template>

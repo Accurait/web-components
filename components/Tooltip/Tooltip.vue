@@ -75,13 +75,17 @@ const classes = computed(() =>
 )
 
 const classesArrow = computed(() => {
-  const prefix = 'bg-'
-  const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`)
-  const match = props.class?.match(regex)
+  //check if there is bg color on classes props and use it on arrow too
+  function extractWordsWithPrefix(prefix: string): string[] {
+    const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`, 'g')
+    const matches = props.class?.match(regex) || []
+    return matches
+  }
+  const prefixes = ['bg-', '!bg-', 'dark:bg-', 'dark:!bg-']
 
   return twMerge(
     'absolute h-[8px] w-[8px] rotate-45 bg-gray-800 z-[-1]',
-    match ? match[0] : ''
+    prefixes.flatMap((prefix) => extractWordsWithPrefix(prefix))
   )
 })
 </script>

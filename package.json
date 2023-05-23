@@ -8,7 +8,8 @@
     "assets/",
     "components/",
     "nuxt.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.ts",
+    "formkit.config.ts"
   ],
   "scripts": {
     "build": "nuxi build",

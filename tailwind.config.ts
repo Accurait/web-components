@@ -25,6 +25,8 @@ export default <Config>{
     './nuxt.config.{js,ts}',
     './node_modules/flowbite.{js,ts}',
     './stories/**/*.{js,vue,ts,mdx}',
+    './formkit.config.ts',
+    './formkit.theme.ts',
   ],
   theme: {
     extend: {

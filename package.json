@@ -63,8 +63,10 @@
   "dependencies": {
     "@floating-ui/dom": "^1.2.8",
     "@floating-ui/vue": "^1.0.0",
+    "@formkit/addons": "^0.17.2",
     "@formkit/core": "^0.17.2",
     "@formkit/nuxt": "^0.17.2",
+    "@formkit/themes": "^0.17.2",
     "@formkit/utils": "^0.17.2",
     "@headlessui/tailwindcss": "^0.1.3",
     "@headlessui/vue": "^1.7.13",

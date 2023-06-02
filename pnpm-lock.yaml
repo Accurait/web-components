@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 overrides:
   minimatch: ^7.4.6
@@ -10,12 +14,18 @@ dependencies:
   '@floating-ui/vue':
     specifier: ^1.0.0
     version: 1.0.0(vue@3.3.2)
+  '@formkit/addons':
+    specifier: ^0.17.2
+    version: 0.17.2
   '@formkit/core':
     specifier: ^0.17.2
     version: 0.17.2
   '@formkit/nuxt':
     specifier: ^0.17.2
     version: 0.17.2(tailwindcss@3.3.2)(vue@3.3.2)
+  '@formkit/themes':
+    specifier: ^0.17.2
+    version: 0.17.2(tailwindcss@3.3.2)
   '@formkit/utils':
     specifier: ^0.17.2
     version: 0.17.2
@@ -1721,6 +1731,19 @@ packages:
       '@floating-ui/dom': 1.2.8
       vue: 3.3.2
       vue-demi: 0.13.11(vue@3.3.2)
+    dev: false
+
+  /@formkit/addons@0.17.2:
+    resolution: {integrity: sha512-AEXTO+EYhLipbIU+7/CDnYMw6W3gOSVhMNAJEu5FY+wOANYE2OFUWsQEOnwgUkzk4vEw4wHyOqpK9AhEZ9N6UA==}
+    dependencies:
+      '@formkit/auto-animate': 1.0.0-beta.6
+      '@formkit/core': 0.17.2
+      '@formkit/inputs': 0.17.2
+      '@formkit/utils': 0.17.2
+    dev: false
+
+  /@formkit/auto-animate@1.0.0-beta.6:
+    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
     dev: false
 
   /@formkit/core@0.17.2:

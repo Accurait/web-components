@@ -9,7 +9,8 @@
     "components/",
     "nuxt.config.ts",
     "tailwind.config.ts",
-    "formkit.config.ts"
+    "formkit.config.ts",
+    "formkit.theme.ts"
   ],
   "scripts": {
     "build": "nuxi build",

@@ -73,6 +73,7 @@
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@vueuse/core": "^10.1.2",
     "class-variance-authority": "^0.6.0",
+    "classnames": "^2.3.2",
     "flowbite": "^1.6.5",
     "nanoid": "^4.0.2",
     "primevue": "^3.29.1",

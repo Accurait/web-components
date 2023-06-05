@@ -1,5 +1,41 @@
 import classNames from 'classnames'
 
+const inputText = classNames(
+  'sm:text-sm',
+  'text-base',
+  'text-gray-900',
+  'dark:text-white',
+  'placeholder-gray-400',
+  'formkit-disabled:text-gray-400',
+  'dark:formkit-disabled:text-gray-500'
+)
+const innerInvalid = classNames(
+  'formkit-invalid:ring-red-500',
+  'formkit-invalid:focus-within:ring-red-500',
+  '[&>span:first-child]:formkit-invalid:focus-within:text-red-900',
+  '[&>label:first-child]:formkit-invalid:focus-within:text-red-900'
+)
+const inputInvalid = classNames(
+  // 'formkit-invalid:text-red-700',
+  'formkit-invalid:text-red-900',
+  'formkit-invalid:placeholder-red-700',
+  'formkit-invalid:data-[placeholder="true"]:placeholder-red-700',
+  'dark:formkit-invalid:text-red-400',
+  // 'dark:formkit-invalid:placeholder-red-400'
+  'dark:formkit-invalid:placeholder-red-500',
+  'dark:formkit-invalid:data-[placeholder="true"]:placeholder-red-500'
+)
+const innerRing = classNames(
+  'ring-1',
+  'ring-gray-300',
+  'dark:ring-gray-600',
+  'focus-within:ring-2',
+  'focus-within:ring-primary-500',
+  '[&>span:first-child]:focus-within:text-primary-500',
+  'dark:focus-within:ring-gray-300',
+  'dark:[&>span:first-child]:focus-within:text-primary-500'
+)
+
 // The following Tailwind theme aspires to be a reproduction of the
 // default optional Genesis CSS theme that ships with FormKit
 export default {
@@ -12,14 +48,18 @@ export default {
       'px-2',
       'pb-1'
     ),
-    help: classNames('text-sm', 'font-normal', 'text-gray-500'),
+    help: classNames(
+      'text-sm',
+      'font-normal',
+      'text-gray-500',
+      'dark:text-white'
+    ),
     inner: classNames(
       // disabled
       'formkit-disabled:bg-gray-100',
+      // 'formkit-disabled:transparent',
       'formkit-disabled:cursor-not-allowed',
       'formkit-disabled:pointer-events-none',
-      // invalid
-      'formkit-invalid:bg-red-50',
       // transition
       'transition',
       'duration-100'
@@ -41,6 +81,7 @@ export default {
       'text-sm',
       'font-medium',
       'text-gray-900',
+      'dark:text-white',
       // invalid
       'formkit-invalid:text-red-700',
       // transition
@@ -57,7 +98,10 @@ export default {
     ),
     message: classNames('text-sm', 'font-normal', 'text-red-600', 'transition'),
     messages: classNames('list-none', 'space-y-1', 'p-0', 'mt-1', 'mb-0'),
-    outer: classNames('formkit-disabled:opacity-50'),
+    outer: classNames(
+      // 'formkit-disabled:opacity-50',
+      'formkit-disabled:opacity-40'
+    ),
     prefixIcon:
       'w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 bg-white bg-gradient-to-b from-transparent to-gray-200 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto',
     suffixIcon:
@@ -82,10 +126,10 @@ export default {
       'peer-focus:outline',
       'peer-focus:outline-2',
       'peer-focus:outline-offset-[3px]',
-      'peer-focus:outline-primary-focus',
+      'peer-focus:outline-primary-500',
       // checked
-      'peer-checked:ring-primary',
-      'peer-checked:bg-primary',
+      'peer-checked:ring-primary-500',
+      'peer-checked:bg-primary-500',
       'peer-checked:text-white',
       // disabled
       'formkit-disabled:cursor-not-allowed',
@@ -130,8 +174,6 @@ export default {
     ),
     label: classNames(
       '$reset',
-      'text-sm',
-      'text-gray-900',
       'select-none',
       'cursor-pointer',
       'formkit-disabled:cursor-not-allowed',
@@ -143,7 +185,9 @@ export default {
       'text-sm',
       'font-medium',
       'text-gray-900',
-      'formkit-invalid:text-red-700'
+      'dark:text-white',
+      'formkit-invalid:text-red-900',
+      'dark:formkit-invalid:text-red-400'
     ),
     wrapper: classNames('flex', 'items-center', 'mb-1'),
   },
@@ -152,7 +196,7 @@ export default {
       '$reset',
       'inline-flex',
       'items-center',
-      'bg-primary',
+      'bg-primary-500',
       'text-white',
       'text-md',
       'font-normal',
@@ -170,7 +214,7 @@ export default {
       'focus:ring-primary-500',
       'focus-visible:ring-0',
       'focus-visible:outline-2',
-      'focus-visible:outline-primary',
+      'focus-visible:outline-primary-500',
       'focus-visible:outline-offset-2',
       // disabled
       'formkit-disabled:bg-gray-400',
@@ -220,26 +264,14 @@ export default {
       'relative',
       'flex',
       'bg-gray-50',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
+      innerRing,
       'rounded-lg',
       'mb-1',
       'formkit-disabled:focus-within:ring-gray-300',
       'formkit-disabled:focus-within:ring-1',
-      '[&>span:first-child]:focus-within:text-primary',
-      'formkit-invalid:ring-red-500',
-      'formkit-invalid:focus-within:ring-red-500',
-      '[&>span:first-child]:formkit-invalid:focus-within:text-red-900'
+      innerInvalid
     ),
-    input: classNames(
-      'w-full',
-      'p-2.5',
-      'sm:text-sm',
-      'formkit-invalid:text-red-900',
-      'formkit-invalid:placeholder-red-700'
-    ),
+    input: classNames('w-full', 'p-2.5', inputText, inputInvalid),
     listbox: classNames(
       'bg-white',
       'drop-shadow-lg',
@@ -260,8 +292,8 @@ export default {
       'hover:bg-gray-200',
       'data-[is-active="true"]:cursor-pointer',
       'data-[is-active="true"]:bg-gray-200',
-      'data-[is-active="true"]:aria-selected:bg-primary',
-      'aria-selected:bg-primary',
+      'data-[is-active="true"]:aria-selected:bg-primary-500',
+      'aria-selected:bg-primary-500',
       'aria-selected:text-white',
       'transition',
       'duration-100'
@@ -275,7 +307,7 @@ export default {
       'p-2',
       'text-center',
       'w-full',
-      'text-primary',
+      'text-primary-500',
       'formkit-loading:text-gray-500',
       'cursor-pointer',
       '[&>span]:mr-3',
@@ -297,6 +329,7 @@ export default {
       '[&u]',
       'focus-visible:outline-none',
       'text-gray-900',
+      'dark:text-white',
       'formkit-invalid:text-red-900'
     ),
     selectedIcon: classNames(
@@ -321,65 +354,36 @@ export default {
     inner: classNames(
       'flex',
       'items-center',
-      // 'max-w-md',
       'bg-gray-50',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
-      '[&>label:first-child]:focus-within:text-primary',
+      innerRing,
       'rounded-lg',
       'mb-1',
-      // invalid
-      'formkit-invalid:ring-red-500',
-      'formkit-invalid:focus-within:ring-red-500',
-      '[&>label:first-child]:formkit-invalid:focus-within:text-red-900'
+      innerInvalid
     ),
     input: classNames(
       'w-full',
-      // 'px-3',
-      // 'py-2',
       'p-2.5',
       'border-none',
-      // 'text-base',
-      'sm:text-sm',
-      'text-gray-900',
-      'placeholder-gray-400',
-      // invalid
-      'formkit-invalid:text-red-900',
-      'formkit-invalid:placeholder-red-700'
+      inputText,
+      inputInvalid
     ),
   },
   'family:date': {
     inner: classNames(
       'flex',
       'items-center',
-      // 'max-w-md',
       'bg-gray-50',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
-      '[&>label:first-child]:focus-within:text-primary',
+      innerRing,
       'rounded-lg',
       'mb-1',
-      // invalid
-      'formkit-invalid:ring-red-500',
-      'formkit-invalid:focus-within:ring-red-500',
-      '[&>label:first-child]:formkit-invalid:focus-within:text-red-900'
+      innerInvalid
     ),
     input: classNames(
       'w-full',
-      // 'px-3',
-      // 'py-2',
       'p-2.5',
-      'sm:text-sm',
       'border-none',
-      'text-gray-900',
-      'placeholder-gray-400',
-      // invalid
-      'formkit-invalid:text-red-900',
-      'formkit-invalid:placeholder-red-700'
+      inputText,
+      inputInvalid
     ),
   },
   // Specific styles apply only to a given input type
@@ -432,7 +436,7 @@ export default {
       'hover:text-red-500',
       'pl-2',
       'peer-data-[has-multiple=true]:text-sm',
-      'peer-data-[has-multiple=true]:text-primary',
+      'peer-data-[has-multiple=true]:text-primary-500',
       'peer-data-[has-multiple=true]:ml-3',
       'peer-data-[has-multiple=true]:mb-2',
       'formkit-multiple:bottom-[0.15em]',
@@ -529,20 +533,12 @@ export default {
     inner: classNames(
       'flex',
       'relative',
-      // 'max-w-md',
       'items-center',
       'rounded-lg',
       'mb-1',
       'bg-gray-50',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
-      '[&>span:first-child]:focus-within:text-primary',
-      // invalid
-      'formkit-invalid:ring-red-500',
-      'formkit-invalid:focus-within:ring-red-500',
-      '[&>span:first-child]:formkit-invalid:focus-within:text-red-900'
+      innerRing,
+      innerInvalid
     ),
     input: classNames(
       'w-full',
@@ -550,16 +546,11 @@ export default {
       'pr-8',
       'py-2.5',
       'border-none',
-      'sm:text-sm',
-      'text-gray-900',
-      'placeholder-gray-400',
+      inputText,
       'formkit-multiple:p-0',
       'data-[placeholder="true"]:text-gray-400',
       'formkit-multiple:data-[placeholder="true"]:text-inherit',
-      // invalid
-      'formkit-invalid:text-red-900',
-      'formkit-invalid:placeholder-red-700',
-      'formkit-invalid:data-[placeholder="true"]:placeholder-red-700'
+      inputInvalid
     ),
     selectIcon: classNames(
       'flex',
@@ -583,13 +574,8 @@ export default {
     ),
   },
   multiselect: {
-    outer: classNames('l-multiselect'),
-    // label: classNames('block', 'mb-2', 'text-sm', 'font-medium', 'text-gray-900', 'formkit-invalid:text-red-700'),
-    inner: classNames(
-      'mb-1',
-      // 'max-w-md',
-      'rounded-lg'
-    ),
+    outer: classNames('flnt-multiselect'),
+    inner: classNames('mb-1', 'rounded-lg'),
   },
   textarea: {
     inner: classNames(
@@ -598,15 +584,8 @@ export default {
       'rounded-lg',
       'mb-1',
       'bg-gray-50',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
-      '[&>label:first-child]:focus-within:text-primary',
-      // invalid
-      'formkit-invalid:ring-red-500',
-      'formkit-invalid:focus-within:ring-red-500',
-      '[&>label:first-child]:formkit-invalid:focus-within:text-red-900'
+      innerRing,
+      innerInvalid
     ),
     input: classNames(
       'block',
@@ -619,9 +598,7 @@ export default {
       'text-gray-700',
       'placeholder-gray-400',
       'focus:shadow-outline',
-      // invalid
-      'formkit-invalid:text-red-900',
-      'formkit-invalid:placeholder-red-700'
+      inputInvalid
     ),
   },
   // PRO input styles
@@ -665,7 +642,7 @@ export default {
       'mb-3',
       'pb-3'
     ),
-    // input: classNames('selection:bg-primary'),
+    // input: classNames('selection:bg-primary-500'),
     monthsHeader: classNames(
       'flex',
       'items-center',
@@ -691,11 +668,11 @@ export default {
       'p-2',
       'rounded-md',
       'bg-gray-200',
-      'aria-selected:bg-primary',
+      'aria-selected:bg-primary-500',
       'aria-selected:text-white',
       'focus:outline',
       'group:focus:outline-2',
-      'focus:outline-primary',
+      'focus:outline-primary-500',
       'focus:outline-offset-2',
       'focus:bg-white',
       'focus:text-black',
@@ -722,11 +699,11 @@ export default {
       'p-2',
       'rounded-md',
       'bg-gray-200',
-      'aria-selected:bg-primary',
+      'aria-selected:bg-primary-500',
       'aria-selected:text-white',
       'focus:outline',
       'focus:outline-2',
-      'focus:outline-primary',
+      'focus:outline-primary-500',
       'focus:outline-offset-2',
       'focus:bg-white',
       'focus:text-black',
@@ -776,7 +753,7 @@ export default {
       'rounded-md',
       'p-2',
       'my-[2em]',
-      'focus-visible:outline-primary'
+      'focus-visible:outline-primary-500'
     ),
     daysHeader: 'flex items-center justify-center',
     prev: classNames(
@@ -785,8 +762,8 @@ export default {
       'py-1',
       'rounded-md',
       'hover:bg-gray-100',
-      'focus-visible:outline-primary',
-      'focus-visible:outline-primary',
+      'focus-visible:outline-primary-500',
+      'focus-visible:outline-primary-500',
       'col-start-1',
       'col-end-1'
     ),
@@ -801,7 +778,7 @@ export default {
       'border-2',
       'rounded-lg',
       'mx-1',
-      'hover:border-primary'
+      'hover:border-primary-500'
     ),
     monthButton: classNames(
       'appearance-none',
@@ -812,8 +789,8 @@ export default {
       'border-2',
       'rounded-lg',
       'mx-1',
-      'hover:border-primary',
-      'focus:outline-primary'
+      'hover:border-primary-500',
+      'focus:outline-primary-500'
     ),
     yearButton: classNames(
       'appearance-none',
@@ -824,8 +801,8 @@ export default {
       'border-2',
       'rounded-lg',
       'mx-1',
-      'hover:border-primary',
-      'focus:outline-primary'
+      'hover:border-primary-500',
+      'focus:outline-primary-500'
     ),
     next: classNames(
       'ml-auto',
@@ -833,7 +810,7 @@ export default {
       'py-1',
       'rounded-md',
       'hover:bg-gray-100',
-      'focus-visible:outline-primary',
+      'focus-visible:outline-primary-500',
       'col-start-3',
       'col-end-3'
     ),
@@ -849,7 +826,7 @@ export default {
       'cursor-pointer',
       'focus-visible:outline-none',
       'focus-visible:text-white',
-      'focus-visible:bg-primary'
+      'focus-visible:bg-primary-500'
     ),
     calendarIcon: classNames(
       'flex',
@@ -869,22 +846,11 @@ export default {
       'flex',
       'items-center',
       // 'max-w-md',
-      'ring-1',
-      'ring-gray-300',
-      'focus-within:ring-primary',
-      'focus-within:ring-2',
-      '[&>label:first-child]:focus-within:text-primary',
+      innerRing,
       'rounded-lg',
       'mb-1'
     ),
-    input: classNames(
-      'w-full',
-      'p-2.5',
-      'border-none',
-      'text-base',
-      'text-gray-900',
-      'placeholder-gray-400'
-    ),
+    input: classNames('w-full', 'p-2.5', 'border-none', inputText),
   },
   rating: {
     inner: classNames(
@@ -922,7 +888,7 @@ export default {
       'p-3'
     ),
     downControl: classNames(
-      'hover:text-primary',
+      'hover:text-primary-500',
       'disabled:hover:text-inherit',
       'disabled:opacity-25'
     ),
@@ -939,13 +905,13 @@ export default {
     moveDownIcon: classNames('block', 'w-3', 'my-1'),
     moveUpIcon: classNames('block', 'w-3', 'my-1'),
     removeControl: classNames(
-      'hover:text-primary',
+      'hover:text-primary-500',
       'disabled:hover:text-inherit',
       'disabled:opacity-25'
     ),
     removeIcon: classNames('block', 'w-5', 'my-1'),
     upControl: classNames(
-      'hover:text-primary',
+      'hover:text-primary-500',
       'disabled:hover:text-inherit',
       'disabled:opacity-25'
     ),
@@ -1123,7 +1089,7 @@ export default {
       'mr-1',
       'focus:outline-none',
       'focus:text-white',
-      '[&>div]:focus:bg-primary',
+      '[&>div]:focus:bg-primary-500',
       '[&>div>button]:focus:text-white',
       // invalid
       'formkit-invalid:focus:text-white',
@@ -1197,7 +1163,7 @@ export default {
   },
   transferlist: {
     outer: classNames(
-      '[&_.dnd-placeholder]:bg-primary',
+      '[&_.dnd-placeholder]:bg-primary-500',
       '[&_.dnd-placeholder]:text-white',
       '[&_.dnd-placeholder_svg]:text-white',
       '[&_.dnd-children-hidden]:w-full',
@@ -1254,8 +1220,8 @@ export default {
     transferlistListItem: classNames(
       'pl-8',
       'relative',
-      'aria-selected:bg-primary',
-      'aria-selected:data-[is-active=true]:bg-primary',
+      'aria-selected:bg-primary-500',
+      'aria-selected:data-[is-active=true]:bg-primary-500',
       'aria-selected:text-white',
       'aria-selected:data-[is-active=true]:text-white',
       'first:-mt-px',
@@ -1266,7 +1232,7 @@ export default {
       'relative',
       'border-b',
       'bg-white',
-      'data-[is-active=true]:text-primary',
+      'data-[is-active=true]:text-primary-500',
       'data-[is-active=true]:bg-gray-100',
       'cursor-pointer',
       'group-data-[is-max=true]:cursor-not-allowed',
@@ -1305,7 +1271,7 @@ export default {
       'disabled:hover:outline-none',
       'hover:outline-1',
       'hover:outline-black',
-      'hover:text-primary',
+      'hover:text-primary-500',
       'disabled:hover:text-current',
       'hover:z-10'
     ),

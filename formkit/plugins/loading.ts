@@ -38,7 +38,7 @@ export function createLoadingPlugin(
 ): FormKitPlugin {
   const loadingPlugin = (node: FormKitNode) => {
     node.extend('disturbLoading', {
-      get: (node) => {
+      get: (node) => () => {
         if (node.context!._l <= 0) {
           node.context!.isLoading = true
           node.emit('loading', true, false)
@@ -47,14 +47,12 @@ export function createLoadingPlugin(
           })
         }
         node.context!._l++
-
-        return node
       },
       set: false,
     })
 
     node.extend('calmLoading', {
-      get: (node) => {
+      get: (node) => () => {
         if (node.context!._l > 0) node.context!._l--
         if (node.context!._l === 0) {
           node.context!.isLoading = false

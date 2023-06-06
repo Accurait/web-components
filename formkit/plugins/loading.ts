@@ -6,6 +6,8 @@ import {
 
 declare module '@formkit/core' {
   interface FormKitNodeExtensions {
+    disturbLoading: () => void
+    calmLoading: () => void
     context: {
       _resolveLoading: ((value: unknown) => void) | undefined
       _l: number

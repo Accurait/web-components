@@ -53,6 +53,9 @@ dependencies:
   flowbite:
     specifier: ^1.6.5
     version: 1.6.5
+  formkit-lazy-plugin:
+    specifier: ^0.0.1
+    version: 0.0.1
   nanoid:
     specifier: ^4.0.2
     version: 4.0.2
@@ -6211,6 +6214,13 @@ packages:
     dependencies:
       fetch-blob: 3.2.0
     dev: true
+
+  /formkit-lazy-plugin@0.0.1:
+    resolution: {integrity: sha512-l55VR4bDOFLlDrFmx5md/Z5BA7XVfXqTVojufbmW535xumhruYCVa9rKT2IoOwbrwI+S6ZcKhAhsE5HIKrJPrw==}
+    dependencies:
+      '@formkit/core': 0.17.2
+      '@formkit/utils': 0.17.2
+    dev: false
 
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}

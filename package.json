@@ -76,6 +76,7 @@
     "class-variance-authority": "^0.6.0",
     "classnames": "^2.3.2",
     "flowbite": "^1.6.5",
+    "formkit-lazy-plugin": "^0.0.1",
     "nanoid": "^4.0.2",
     "primevue": "^3.29.1",
     "tailwind-merge": "^1.12.0"

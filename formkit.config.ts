@@ -3,11 +3,8 @@ import { generateClasses } from '@formkit/themes'
 import { genesisIcons } from '@formkit/icons'
 import { createMultiStepPlugin } from '@formkit/addons'
 import '@formkit/addons/css/multistep'
-import {
-  createLazyPlugin,
-  createLoadingPlugin,
-  createHistoryPlugin,
-} from './formkit/plugins'
+import { createLazyPlugin } from 'formkit-lazy-plugin'
+import { createLoadingPlugin, createHistoryPlugin } from './formkit/plugins'
 import theme from './formkit.theme'
 
 export default <DefaultConfigOptions>{

@@ -12,11 +12,6 @@ const colors = {
     text: 'white',
     ring: gray['300'],
   },
-  'input-primary': {
-    DEFAULT: blue['500'],
-    hover: blue['600'],
-    focus: blue['300'],
-  },
   primary: blue,
   secondary: green,
 }

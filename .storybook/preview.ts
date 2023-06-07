@@ -1,6 +1,11 @@
 import { setup, type Preview } from '@storybook/vue3'
 import { withThemeByDataAttribute } from '@storybook/addon-styling'
 import PrimeVue from 'primevue/config'
+import {
+  plugin as formkitPlugin,
+  defaultConfig as formkitDefaultConfig,
+} from '@formkit/vue'
+import formkitConfig from '../formkit.config'
 
 /**
  * Storybook is not able to find the tailwind css file automatically, so we need to import it manually
@@ -14,6 +19,7 @@ setup((app) => {
     template: `<a :href="to"><slot /></a>`,
   })
   app.use(PrimeVue)
+  app.use(formkitPlugin, formkitDefaultConfig(formkitConfig))
 })
 
 const preview: Preview = {

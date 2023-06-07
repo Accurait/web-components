@@ -8,7 +8,9 @@
     "assets/",
     "components/",
     "nuxt.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.ts",
+    "formkit.config.ts",
+    "formkit.theme.ts"
   ],
   "scripts": {
     "build": "nuxi build",
@@ -61,12 +63,20 @@
   "dependencies": {
     "@floating-ui/dom": "^1.2.8",
     "@floating-ui/vue": "^1.0.0",
+    "@formkit/addons": "^0.17.2",
+    "@formkit/core": "^0.17.2",
+    "@formkit/icons": "^0.17.2",
+    "@formkit/nuxt": "^0.17.2",
+    "@formkit/themes": "^0.17.2",
+    "@formkit/utils": "^0.17.2",
     "@headlessui/tailwindcss": "^0.1.3",
     "@headlessui/vue": "^1.7.13",
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@vueuse/core": "^10.1.2",
     "class-variance-authority": "^0.6.0",
+    "classnames": "^2.3.2",
     "flowbite": "^1.6.5",
+    "formkit-lazy-plugin": "^0.0.1",
     "nanoid": "^4.0.2",
     "primevue": "^3.29.1",
     "tailwind-merge": "^1.12.0"

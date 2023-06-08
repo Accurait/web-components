@@ -576,7 +576,6 @@ export default {
   textarea: {
     inner: classNames(
       'flex',
-      // 'max-w-md',
       'rounded-lg',
       'mb-1',
       'bg-gray-50',
@@ -587,13 +586,9 @@ export default {
       'block',
       'w-full',
       'h-32',
-      'px-3',
-      'py-3',
+      'p-2.5',
       'border-none',
-      'text-base',
-      'text-gray-700',
-      'placeholder-gray-400',
-      'focus:shadow-outline',
+      inputText,
       inputInvalid
     ),
     inputText,

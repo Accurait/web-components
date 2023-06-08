@@ -573,10 +573,6 @@ export default {
       'text-gray-700'
     ),
   },
-  multiselect: {
-    outer: classNames('flnt-multiselect'),
-    inner: classNames('mb-1', 'rounded-lg'),
-  },
   textarea: {
     inner: classNames(
       'flex',

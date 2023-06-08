@@ -125,7 +125,7 @@ export default {
       'mr-2',
       'rounded',
       'text-transparent',
-      'bg-gray-50',
+      innerBackground,
       'cursor-pointer',
       'ring-1',
       'ring-gray-300',
@@ -133,19 +133,19 @@ export default {
       'peer-focus:outline',
       'peer-focus:outline-2',
       'peer-focus:outline-offset-[3px]',
-      'peer-focus:outline-primary-500',
+      'peer-focus:outline-primary-500/40',
       // checked
-      'peer-checked:ring-primary-500',
+      'peer-checked:ring-primary-500/40',
       'peer-checked:bg-primary-500',
       'peer-checked:text-white',
       // disabled
       'formkit-disabled:cursor-not-allowed',
       // invalid
-      'formkit-invalid:bg-red-50',
+      // 'formkit-invalid:bg-red-50',
       'formkit-invalid:ring-red-500',
-      'formkit-invalid:peer-checked:ring-red-500',
+      'formkit-invalid:peer-checked:ring-red-500/40',
       'formkit-invalid:peer-checked:bg-red-500',
-      'formkit-invalid:peer-focus:outline-red-300'
+      'formkit-invalid:peer-focus:outline-red-300/40'
     ),
     decoratorIcon: classNames(
       'flex',
@@ -184,7 +184,8 @@ export default {
       'select-none',
       'cursor-pointer',
       'formkit-disabled:cursor-not-allowed',
-      'formkit-invalid:text-red-900'
+      'formkit-invalid:text-red-900',
+      'dark:formkit-invalid:text-red-400'
     ),
     legend: classNames(
       'block',

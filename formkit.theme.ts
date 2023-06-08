@@ -59,7 +59,7 @@ export default {
       'text-sm',
       'font-normal',
       'text-gray-500',
-      'dark:text-white'
+      'dark:text-gray-300'
     ),
     inner: classNames(
       // disabled

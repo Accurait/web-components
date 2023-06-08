@@ -50,7 +50,8 @@ export default {
   global: {
     fieldset: classNames(
       'border',
-      'border-gray-400',
+      'border-gray-300',
+      'dark:border-gray-600',
       'rounded',
       'px-2',
       'pb-1'

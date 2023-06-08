@@ -11,6 +11,7 @@ import formkitConfig from '../formkit.config'
  * Storybook is not able to find the tailwind css file automatically, so we need to import it manually
  */
 import '../assets/css/tailwind.css'
+import '../assets/css/storybook.css'
 
 // mock NuxtLink component as storybook cannot import it automatically
 setup((app) => {
@@ -33,26 +34,17 @@ const preview: Preview = {
       expanded: true,
     },
   },
-  globalTypes: {
-    darkMode: {
-      defaultValue: false,
-    },
-    className: {
-      defaultValue: '',
-    },
-  },
+  /* tailwind light and dark theme switcher */
+  decorators: [
+    withThemeByDataAttribute({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      attributeName: 'data-mode',
+    }),
+  ],
 }
 
 export default preview
-
-/* tailwind light and dark theme switcher */
-export const decorators = [
-  withThemeByDataAttribute({
-    themes: {
-      light: 'light',
-      dark: 'dark',
-    },
-    defaultTheme: 'light',
-    attributeName: 'data-mode',
-  }),
-]

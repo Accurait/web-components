@@ -600,6 +600,7 @@ export default {
       'focus:shadow-outline',
       inputInvalid
     ),
+    inputText,
   },
   // PRO input styles
   autocomplete: {

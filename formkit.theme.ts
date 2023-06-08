@@ -25,14 +25,21 @@ const inputInvalid = classNames(
   'dark:formkit-invalid:placeholder-red-500',
   'dark:formkit-invalid:data-[placeholder="true"]:placeholder-red-500'
 )
+const innerBackground = classNames(
+  'bg-black',
+  'bg-opacity-[0.025]',
+  'dark:bg-opacity-10'
+)
 const innerRing = classNames(
-  'ring-1',
-  'ring-gray-300',
-  'dark:ring-gray-600',
+  'border',
+  'border-gray-300',
+  'dark:border-gray-600',
+  'focus-within:border-primary-500',
   'focus-within:ring-2',
-  'focus-within:ring-primary-500',
-  '[&>span:first-child]:focus-within:text-primary-500',
-  'dark:focus-within:ring-gray-300',
+  'focus-within:ring-primary-500/40',
+  '[&>span:first-child]:focus-within:text-primary-300',
+  'dark:focus-within:border-primary-500',
+  'dark:focus-within:ring-primary-500/40',
   'dark:[&>span:first-child]:focus-within:text-primary-500'
 )
 
@@ -263,7 +270,7 @@ export default {
     inner: classNames(
       'relative',
       'flex',
-      'bg-gray-50',
+      innerBackground,
       innerRing,
       'rounded-lg',
       'mb-1',
@@ -354,7 +361,7 @@ export default {
     inner: classNames(
       'flex',
       'items-center',
-      'bg-gray-50',
+      innerBackground,
       innerRing,
       'rounded-lg',
       'mb-1',
@@ -372,7 +379,7 @@ export default {
     inner: classNames(
       'flex',
       'items-center',
-      'bg-gray-50',
+      innerBackground,
       innerRing,
       'rounded-lg',
       'mb-1',
@@ -536,7 +543,7 @@ export default {
       'items-center',
       'rounded-lg',
       'mb-1',
-      'bg-gray-50',
+      innerBackground,
       innerRing,
       innerInvalid
     ),
@@ -578,7 +585,7 @@ export default {
       'flex',
       'rounded-lg',
       'mb-1',
-      'bg-gray-50',
+      innerBackground,
       innerRing,
       innerInvalid
     ),

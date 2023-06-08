@@ -63,8 +63,7 @@ export default {
     ),
     inner: classNames(
       // disabled
-      'formkit-disabled:bg-gray-100',
-      // 'formkit-disabled:transparent',
+      'formkit-disabled:transparent',
       'formkit-disabled:cursor-not-allowed',
       'formkit-disabled:pointer-events-none',
       // transition

@@ -1,5 +1,5 @@
 import { type FormKitNode, type FormKitPlugin } from '@formkit/core'
-
+import { reactive } from 'vue'
 declare module '@formkit/core' {
   interface FormKitNodeExtensions {
     undo: () => Promise<void>

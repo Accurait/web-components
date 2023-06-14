@@ -14,6 +14,9 @@ const colors = {
   },
   primary: blue,
   secondary: green,
+  'dark-gray': '#32353E',
+  'med-gray': '#8C8F94',
+  'light-gray': '#E8E9EA',
 }
 
 export default <Config>{

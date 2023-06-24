@@ -81,10 +81,10 @@ export function createHistoryPlugin(
       node.extend('undo', {
         get: (node) => async () => {
           if (node.canUndo) {
-            const previousValue = node._value
-            const value = history.history[history.currentIndex]
             history.inProgress = true
             history.currentIndex--
+            const previousValue = node._value
+            const value = history.history[history.currentIndex]
             await node.input(value)
             history.inProgress = false
             node.emit('history:undo', { previousValue, value })
@@ -96,10 +96,10 @@ export function createHistoryPlugin(
       node.extend('redo', {
         get: (node) => async () => {
           if (node.canRedo) {
-            const previousValue = node._value
-            const value = history.history[history.currentIndex]
             history.inProgress = true
             history.currentIndex++
+            const previousValue = node._value
+            const value = history.history[history.currentIndex]
             await node.input(value)
             history.inProgress = false
             node.emit('history:redo', { previousValue, value })

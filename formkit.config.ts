@@ -2,6 +2,7 @@ import { type DefaultConfigOptions } from '@formkit/vue'
 import { generateClasses } from '@formkit/themes'
 import { genesisIcons } from '@formkit/icons'
 import {
+  createAutoAnimatePlugin,
   createMultiStepPlugin,
   createAutoHeightTextareaPlugin,
 } from '@formkit/addons'
@@ -18,6 +19,7 @@ export default <DefaultConfigOptions>{
     ...genesisIcons,
   },
   plugins: [
+    createAutoAnimatePlugin(),
     createAutoHeightTextareaPlugin(),
     createMultiStepPlugin(),
     createLazyPlugin(),

@@ -4,6 +4,7 @@ declare module '@formkit/core' {
   interface FormKitNodeExtensions {
     undo: () => Promise<void>
     redo: () => Promise<void>
+    clearHistory: () => void
     canUndo: boolean
     canRedo: boolean
   }
@@ -80,10 +81,13 @@ export function createHistoryPlugin(
       node.extend('undo', {
         get: (node) => async () => {
           if (node.canUndo) {
+            const previousValue = node._value
+            const value = history.history[history.currentIndex]
             history.inProgress = true
             history.currentIndex--
-            await node.input(history.history[history.currentIndex])
+            await node.input(value)
             history.inProgress = false
+            node.emit('history:undo', { previousValue, value })
           }
         },
         set: false,
@@ -92,14 +96,33 @@ export function createHistoryPlugin(
       node.extend('redo', {
         get: (node) => async () => {
           if (node.canRedo) {
+            const previousValue = node._value
+            const value = history.history[history.currentIndex]
             history.inProgress = true
             history.currentIndex++
-            await node.input(history.history[history.currentIndex])
+            await node.input(value)
             history.inProgress = false
+            node.emit('history:redo', { previousValue, value })
           }
         },
         set: false,
       })
+
+      node.extend('clearHistory', {
+        get: (node) => () => {
+          history.history = [node._value]
+          history.currentIndex = 0
+          node.emit('history:clear')
+        },
+        set: false,
+      })
+
+      node.on('reset', async () => {
+        await node.settled
+        node.clearHistory()
+      })
+
+      node.emit('history:created', node)
     })
   }
 

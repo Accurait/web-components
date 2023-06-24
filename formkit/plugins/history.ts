@@ -4,8 +4,8 @@ declare module '@formkit/core' {
   interface FormKitNodeExtensions {
     undo: () => Promise<void>
     redo: () => Promise<void>
-    canUndo: () => boolean
-    canRedo: () => boolean
+    canUndo: boolean
+    canRedo: boolean
   }
 
   interface FormKitFrameworkContext {
@@ -64,14 +64,14 @@ export function createHistoryPlugin(
       })
 
       node.extend('canUndo', {
-        get: () => () => {
+        get: () => {
           return history.currentIndex > 0
         },
         set: false,
       })
 
       node.extend('canRedo', {
-        get: () => () => {
+        get: () => {
           return history.currentIndex < history.history.length - 1
         },
         set: false,
@@ -79,7 +79,7 @@ export function createHistoryPlugin(
 
       node.extend('undo', {
         get: (node) => async () => {
-          if (node.canUndo()) {
+          if (node.canUndo) {
             history.inProgress = true
             history.currentIndex--
             await node.input(history.history[history.currentIndex])
@@ -91,7 +91,7 @@ export function createHistoryPlugin(
 
       node.extend('redo', {
         get: (node) => async () => {
-          if (node.canRedo()) {
+          if (node.canRedo) {
             history.inProgress = true
             history.currentIndex++
             await node.input(history.history[history.currentIndex])

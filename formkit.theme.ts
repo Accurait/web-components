@@ -593,7 +593,6 @@ export default {
     input: classNames(
       'block',
       'w-full',
-      'h-32',
       'p-2.5',
       'border-none',
       inputText,

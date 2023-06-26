@@ -97,7 +97,7 @@ const arrorClasses = computed(() => {
   //check if there is bg color on classes props and use it on arrow too
   function extractWordsWithPrefix(prefix: string): string[] {
     const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`, 'g')
-    const matches = attrClass.match(regex) || []
+    const matches = attrClass?.match(regex) || []
     return matches
   }
   const prefixes = ['bg-', '!bg-', 'dark:bg-', 'dark:!bg-']

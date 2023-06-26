@@ -6,24 +6,25 @@ import {
 } from './composables/usePanelClasses'
 import type { PropType } from 'vue'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps({
   size: {
     type: String as PropType<PanelVariantProps['size']>,
     default: 'flexible',
-  },
-  class: {
-    type: String,
-    default: '',
-  },
+  }
 })
 
+const { class: attrClass, ...attrs } = useAttrs()
 const classes = computed(() =>
-  twMerge(usePanelClasses({ size: props.size }), props.class)
+  twMerge(usePanelClasses({ size: props.size }), attrClass as string)
 )
 </script>
 
 <template>
-  <div :class="[...classes.split(' ')]">
+  <div :class="[...classes.split(' ')]" v-bind="attrs">
     <slot />
   </div>
 </template>

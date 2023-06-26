@@ -1,7 +1,18 @@
 <script lang="ts" setup>
-import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom'
+import {
+  arrow,
+  computePosition,
+  flip,
+  offset,
+  shift,
+  Placement,
+} from '@floating-ui/dom'
 import { useTooltipClasses } from './composables/useTooltipClasses'
 import { twMerge } from 'tailwind-merge'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = defineProps({
   content: {
@@ -9,18 +20,16 @@ const props = defineProps({
     required: true,
   },
   placement: {
-    type: String,
+    type: String as PropType<Placement>,
     default: 'bottom',
-  },
-  class: {
-    type: String,
-    default: undefined,
   },
   outerClass: {
     type: String,
     default: undefined,
   },
 })
+
+const { class: attrClass, ...attrs } = useAttrs() as { class: string }
 
 const referenceRef = ref()
 const floatingRef = ref()
@@ -61,7 +70,7 @@ async function calculatePosition() {
     top: arrowY ? `${arrowY}px` : '',
     bottom: '',
     right: '',
-    [opposedSide]: '-4px',
+    [opposedSide!]: '-4px',
   })
 }
 
@@ -75,7 +84,11 @@ function show() {
 }
 
 const tooltipClasses = computed(() =>
-  twMerge(useTooltipClasses(), props.class, isHidden.value ? 'hidden' : '')
+  twMerge(
+    useTooltipClasses(),
+    attrClass as string,
+    isHidden.value ? 'hidden' : ''
+  )
 )
 
 const outerClasses = computed(() => twMerge('inline-block', props.outerClass))
@@ -84,7 +97,7 @@ const arrorClasses = computed(() => {
   //check if there is bg color on classes props and use it on arrow too
   function extractWordsWithPrefix(prefix: string): string[] {
     const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`, 'g')
-    const matches = props.class?.match(regex) || []
+    const matches = attrClass.match(regex) || []
     return matches
   }
   const prefixes = ['bg-', '!bg-', 'dark:bg-', 'dark:!bg-']
@@ -100,6 +113,7 @@ const arrorClasses = computed(() => {
   <div
     ref="referenceRef"
     :class="[...outerClasses.split(' ')]"
+    v-bind="attrs"
     @blur="hide"
     @focus="show"
     @mouseenter="show"

@@ -404,10 +404,10 @@ export const SortableMultiple: Story = {
  * @returns A randomly generated company object.
  */
 function createFakeCompany(parentId?: string): CompanyDto {
-  const id = faker.datatype.uuid()
+  const id = faker.string.uuid()
   return {
     id,
-    countryId: faker.address.countryCode(),
+    countryId: faker.location.countryCode(),
     name: faker.company.name(),
     tradingName: faker.company.name(),
     notes: faker.lorem.words(3),

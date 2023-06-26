@@ -5,11 +5,11 @@ import {
   useColClasses,
 } from './composables/useColClasses'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps({
-  class: {
-    type: String,
-    default: undefined,
-  },
   sm: {
     type: String as PropType<ColVariantProps['sm']>,
     default: 'DEFAULT',
@@ -27,6 +27,8 @@ const props = defineProps({
     default: 'DEFAULT',
   },
 })
+
+const { class: attrClass, ...attrs } = useAttrs()
 const classes = computed(() =>
   twMerge(
     useColClasses({
@@ -35,14 +37,13 @@ const classes = computed(() =>
       xl: props.xl,
       '2xl': props['2xl'],
     }),
-
-    props.class
+    attrs.class as string
   )
 )
 </script>
 
 <template>
-  <div :class="[...classes.split(' ')]" v-bind="$attrs">
+  <div :class="[...classes.split(' ')]" v-bind="attrs">
     <slot />
   </div>
 </template>

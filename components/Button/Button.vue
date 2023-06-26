@@ -6,6 +6,11 @@ import {
 } from './composables/useButtonClasses'
 import type { PropType } from 'vue'
 
+// turn off inheritAttrs as we want to merge local tailwind classes with the class attribute manually
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps({
   size: {
     type: String as PropType<ButtonVariantProps['size']>,
@@ -23,10 +28,6 @@ const props = defineProps({
     type: Boolean as PropType<ButtonVariantProps['ring']>,
     default: false,
   },
-  class: {
-    type: String,
-    default: undefined,
-  },
   loading: {
     type: Boolean,
     default: false,
@@ -42,6 +43,7 @@ const props = defineProps({
   },
 })
 
+const { class: attrClass, ...attrs } = useAttrs()
 const disabled = computed(() => props.disabled || props.loading)
 
 const classes = computed(() =>
@@ -52,7 +54,7 @@ const classes = computed(() =>
       size: props.size,
       shape: props.shape,
     }),
-    props.class
+    attrClass as string
   )
 )
 </script>
@@ -63,7 +65,7 @@ const classes = computed(() =>
     type="button"
     role="button"
     :class="[...classes.split(' ')]"
-    v-bind="$attrs"
+    v-bind="attrs"
     :disabled="disabled"
   >
     <Spinner v-if="loading" size="xs" />
@@ -74,7 +76,7 @@ const classes = computed(() =>
     :to="props.to"
     :class="[...classes.split(' ')]"
     role="link"
-    v-bind="$attrs"
+    v-bind="attrs"
   >
     <slot />
   </NuxtLink>

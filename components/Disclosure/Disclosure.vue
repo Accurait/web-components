@@ -7,6 +7,10 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps({
   buttonContent: {
     type: String,
@@ -15,9 +19,6 @@ const props = defineProps({
   buttonClass: {
     type: String,
     default: '',
-  },
-  class: {
-    type: String,
   },
   // unmount the panel when it is closed
   unmount: {
@@ -31,7 +32,8 @@ const props = defineProps({
   },
 })
 
-const classes = computed(() => twMerge(useDisclosureClasses({}), props.class))
+const { class: attrClass, ...attrs } = useAttrs()
+const classes = computed(() => twMerge(useDisclosureClasses({}), attrClass as string))
 const buttonClasses = computed(() =>
   twMerge(useButtonClasses({}), props.buttonClass)
 )
@@ -43,6 +45,7 @@ const buttonClasses = computed(() =>
     v-slot="{ open, close }"
     :class="[...classes.split(' ')]"
     :default-open="props.defaultOpen"
+    v-bind="attrs"
   >
     <!-- Use the `open` state to conditionally change the direction of an icon. -->
     <DisclosureButton :class="[...buttonClasses.split(' ')]">

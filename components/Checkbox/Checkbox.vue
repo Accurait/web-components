@@ -9,6 +9,10 @@ import {
 // create UID for checkbox
 const id = nanoid()
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps({
   boxClass: {
     type: String,
@@ -28,6 +32,8 @@ const props = defineProps({
   },
 })
 
+const { class: attrClass, ...attrs } = useAttrs()
+
 const checkboxClasses = computed(() =>
   twMerge(useCheckboxClasses(), props.boxClass)
 )
@@ -45,10 +51,10 @@ const updateValue = (e: Event) => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center" :class="attrClass">
     <input
       :id="id"
-      v-bind="$attrs"
+      v-bind="attrs"
       type="checkbox"
       :class="checkboxClasses"
       :value="value"

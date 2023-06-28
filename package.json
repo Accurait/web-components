@@ -12,7 +12,8 @@
     "formkit.config.ts",
     "formkit.theme.ts",
     "formkit/plugins/",
-    "plugins/"
+    "plugins/",
+    "config/"
   ],
   "scripts": {
     "build": "nuxi build",

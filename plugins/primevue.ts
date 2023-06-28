@@ -1,5 +1,5 @@
-import PrimeVue from 'primevue/config'
+// import PrimeVue from 'primevue/config'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(PrimeVue)
+  //   nuxtApp.vueApp.use(PrimeVue)
 })

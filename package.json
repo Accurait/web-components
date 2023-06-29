@@ -1,6 +1,6 @@
 {
   "name": "@flnt-accurait/web-components",
-  "version": "0.0.79",
+  "version": "0.0.75",
   "type": "module",
   "main": "./nuxt.config.ts",
   "private": false,
@@ -11,7 +11,8 @@
     "tailwind.config.ts",
     "formkit.config.ts",
     "formkit.theme.ts",
-    "formkit/plugins/"
+    "formkit/plugins/",
+    "plugins/"
   ],
   "scripts": {
     "build": "nuxi build",

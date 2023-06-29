@@ -1,6 +1,6 @@
 {
   "name": "@flnt-accurait/web-components",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "type": "module",
   "main": "./nuxt.config.ts",
   "private": false,

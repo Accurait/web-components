@@ -35,7 +35,7 @@ const innerRing = classNames(
   'border-gray-300',
   'dark:border-gray-600',
   'focus-within:border-primary-500',
-  'focus-within:ring-2',
+  'focus-within:ring-4',
   'focus-within:ring-primary-500/40',
   '[&>span:first-child]:focus-within:text-primary-300',
   'dark:focus-within:border-primary-500',
@@ -218,7 +218,7 @@ export default {
       'hover:bg-primary-hover',
       // focus
       'focus:outline-none',
-      'focus:ring-2',
+      'focus:ring-4',
       'focus:ring-primary-500',
       'focus-visible:ring-0',
       'focus-visible:outline-2',
@@ -987,7 +987,7 @@ export default {
       '-translate-y-1/2',
       'shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1),0_1px_2px_0_rgba(0,0,0,0.8)]',
       'focus-visible:outline-0',
-      'focus-visible:ring-2',
+      'focus-visible:ring-4',
       'ring-blue-500',
       'data-[is-target="true"]:z-[3]'
     ),
@@ -1132,7 +1132,7 @@ export default {
       'ring-1 ' +
       'ring-gray-300 ' +
       // focus
-      'peer-focus:ring-2 ' +
+      'peer-focus:ring-4 ' +
       'peer-focus:ring-primary-500 ' +
       // checked
       'peer-checked:bg-primary ' +

@@ -17,6 +17,7 @@
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
+    "postdev": "pnpm storybook",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "storybook": "storybook dev -p 6006",

@@ -7,7 +7,6 @@ const currentDir = dirname(fileURLToPath(import.meta.url))
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // nuxt.config.{js,ts}
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
@@ -30,6 +29,4 @@ export default defineNuxtConfig({
   build: {
     transpile: ['primevue'],
   },
-
-  plugins: ['~/plugins/primevue.ts', '~/plugins/formkit-autoanimate.ts'],
 })

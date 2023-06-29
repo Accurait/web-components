@@ -36,6 +36,7 @@ export default <Config>{
       colors,
     },
   },
+  safelist: ['after:animate-wave', 'after:animate-pulse'],
   plugins: [require('flowbite'), require('@formkit/themes/tailwindcss')],
   darkMode: ['class', '[data-mode="dark"]'],
 }

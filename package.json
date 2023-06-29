@@ -11,8 +11,7 @@
     "tailwind.config.ts",
     "formkit.config.ts",
     "formkit.theme.ts",
-    "formkit/plugins/",
-    "plugins/"
+    "formkit/plugins/"
   ],
   "scripts": {
     "build": "nuxi build",

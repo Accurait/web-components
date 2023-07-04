@@ -29,7 +29,7 @@ const props = defineProps({
   },
 })
 
-const { class: attrClass, ...attrs } = useAttrs() as { class: string }
+const { attrClass, attrRest } = useReactiveAttr()
 
 const referenceRef = ref()
 const floatingRef = ref()
@@ -86,7 +86,7 @@ function show() {
 const tooltipClasses = computed(() =>
   twMerge(
     useTooltipClasses(),
-    attrClass as string,
+    attrClass.value,
     isHidden.value ? 'hidden' : ''
   )
 )
@@ -97,7 +97,7 @@ const arrorClasses = computed(() => {
   //check if there is bg color on classes props and use it on arrow too
   function extractWordsWithPrefix(prefix: string): string[] {
     const regex = new RegExp(`\\b${prefix}[^\\s]+\\b`, 'g')
-    const matches = attrClass?.match(regex) || []
+    const matches = attrClass.value?.match(regex) || []
     return matches
   }
   const prefixes = ['bg-', '!bg-', 'dark:bg-', 'dark:!bg-']
@@ -113,7 +113,7 @@ const arrorClasses = computed(() => {
   <div
     ref="referenceRef"
     :class="[...outerClasses.split(' ')]"
-    v-bind="attrs"
+    v-bind="attrRest"
     @blur="hide"
     @focus="show"
     @mouseenter="show"

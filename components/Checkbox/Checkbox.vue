@@ -32,7 +32,7 @@ const props = defineProps({
   },
 })
 
-const { class: attrClass, ...attrs } = useAttrs()
+const { attrClass, attrRest } = useReactiveAttr()
 
 const checkboxClasses = computed(() =>
   twMerge(useCheckboxClasses(), props.boxClass)
@@ -54,7 +54,7 @@ const updateValue = (e: Event) => {
   <div class="flex items-center justify-center" :class="attrClass">
     <input
       :id="id"
-      v-bind="attrs"
+      v-bind="attrRest"
       type="checkbox"
       :class="checkboxClasses"
       :value="value"

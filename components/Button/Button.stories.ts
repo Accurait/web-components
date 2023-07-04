@@ -10,6 +10,9 @@ const meta: Meta<typeof Button> = {
     setup() {
       const onClick = () => {
         args.loading = true
+        setTimeout(() => {
+          args.loading = false
+        }, 2000)
       }
       return { args, onClick }
     },

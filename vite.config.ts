@@ -9,6 +9,9 @@ export default defineConfig({
   plugins: [
     AutoImport({
       imports: ['vue'],
+      dirs: [
+        './composables/**'
+      ]
     }),
     Components({
       dirs: [

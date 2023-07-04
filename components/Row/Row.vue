@@ -8,14 +8,14 @@ defineOptions({
 
 const props = defineProps({})
 
-const { class: attrClass, ...attrs } = useAttrs()
+const { attrClass, attrRest } = useReactiveAttr()
 const classes = computed(() =>
-  twMerge(useRowClasses({}), attrClass as string)
+  twMerge(useRowClasses({}), attrClass.value)
 )
 </script>
 
 <template>
-  <div :class="[...classes.split(' ')]" v-bind="attrs">
+  <div :class="[...classes.split(' ')]" v-bind="attrRest">
     <slot />
   </div>
 </template>

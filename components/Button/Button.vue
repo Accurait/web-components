@@ -43,7 +43,7 @@ const props = defineProps({
   },
 })
 
-const { class: attrClass, ...attrs } = useAttrs()
+const { attrClass, attrRest } = useReactiveAttr()
 const disabled = computed(() => props.disabled || props.loading)
 
 const classes = computed(() =>
@@ -54,7 +54,7 @@ const classes = computed(() =>
       size: props.size,
       shape: props.shape,
     }),
-    attrClass as string
+    attrClass.value
   )
 )
 </script>
@@ -65,7 +65,7 @@ const classes = computed(() =>
     type="button"
     role="button"
     :class="[...classes.split(' ')]"
-    v-bind="attrs"
+    v-bind="attrRest"
     :disabled="disabled"
   >
     <Spinner v-if="loading" size="xs" />
@@ -76,7 +76,7 @@ const classes = computed(() =>
     :to="props.to"
     :class="[...classes.split(' ')]"
     role="link"
-    v-bind="attrs"
+    v-bind="attrRest"
   >
     <slot />
   </NuxtLink>

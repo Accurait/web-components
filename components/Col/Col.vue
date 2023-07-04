@@ -28,7 +28,7 @@ const props = defineProps({
   },
 })
 
-const { class: attrClass, ...attrs } = useAttrs()
+const { attrClass, attrRest } = useReactiveAttr()
 const classes = computed(() =>
   twMerge(
     useColClasses({
@@ -37,13 +37,13 @@ const classes = computed(() =>
       xl: props.xl,
       '2xl': props['2xl'],
     }),
-    attrs.class as string
+    attrClass.value
   )
 )
 </script>
 
 <template>
-  <div :class="[...classes.split(' ')]" v-bind="attrs">
+  <div :class="[...classes.split(' ')]" v-bind="attrRest">
     <slot />
   </div>
 </template>

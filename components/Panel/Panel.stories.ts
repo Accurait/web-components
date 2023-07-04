@@ -5,12 +5,18 @@ import Panel from './Panel.vue'
 const meta: Meta<typeof Panel> = {
   title: 'Panel',
   component: Panel,
-  render: (args) => ({
+  render: (defaultArgs) => ({
     components: { Panel },
     setup() {
-      return { args }
+      const args = {
+        ...defaultArgs,
+        onClick: () => {
+          console.log('panel clicked')
+        },
+      }
+      return { args, content: `In esse consequat incididunt in.` }
     },
-    template: '<Panel v-bind="args">{{args.content}}</Panel>',
+    template: '<Panel v-bind="args">{{content}}</Panel>',
   }),
   argTypes: {
     size: {
@@ -19,9 +25,7 @@ const meta: Meta<typeof Panel> = {
       defaultValue: 'flexible',
     },
   },
-  args: {
-    content: `  In esse consequat incididunt in.`,
-  },
+  args: {},
 }
 
 //👇 This default export determines where your story goes in the story list

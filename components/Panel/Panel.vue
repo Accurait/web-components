@@ -17,14 +17,14 @@ const props = defineProps({
   }
 })
 
-const { class: attrClass, ...attrs } = useAttrs()
+const { attrClass, attrRest } = useReactiveAttr()
 const classes = computed(() =>
-  twMerge(usePanelClasses({ size: props.size }), attrClass as string)
+  twMerge(usePanelClasses({ size: props.size }), attrClass.value)
 )
 </script>
 
 <template>
-  <div :class="[...classes.split(' ')]" v-bind="attrs">
+  <div :class="[...classes.split(' ')]" v-bind="attrRest">
     <slot />
   </div>
 </template>

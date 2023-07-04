@@ -32,8 +32,10 @@ const props = defineProps({
   },
 })
 
-const { class: attrClass, ...attrs } = useAttrs()
-const classes = computed(() => twMerge(useDisclosureClasses({}), attrClass as string))
+const { attrClass, attrRest } = useReactiveAttr()
+const classes = computed(() =>
+  twMerge(useDisclosureClasses({}), attrClass.value)
+)
 const buttonClasses = computed(() =>
   twMerge(useButtonClasses({}), props.buttonClass)
 )
@@ -45,7 +47,7 @@ const buttonClasses = computed(() =>
     v-slot="{ open, close }"
     :class="[...classes.split(' ')]"
     :default-open="props.defaultOpen"
-    v-bind="attrs"
+    v-bind="attrRest"
   >
     <!-- Use the `open` state to conditionally change the direction of an icon. -->
     <DisclosureButton :class="[...buttonClasses.split(' ')]">

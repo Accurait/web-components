@@ -16,6 +16,8 @@ declare module '@formkit/core' {
   interface FormKitHooks {
     history: FormKitDispatcher<unknown>
     beforeSavingToHistory: FormKitDispatcher<unknown>
+    historyUndo: FormKitDispatcher<unknown>
+    historyRedo: FormKitDispatcher<unknown>
   }
 }
 
@@ -91,7 +93,7 @@ export function createHistoryPlugin(
             history.currentIndex--
             const previousValue = node._value
             const value = history.history[history.currentIndex]
-            await node.input(value)
+            await node.input(node.hook.historyUndo.dispatch(value))
             history.inProgress = false
             node.emit('history:undo', { previousValue, value })
           }
@@ -106,7 +108,7 @@ export function createHistoryPlugin(
             history.currentIndex++
             const previousValue = node._value
             const value = history.history[history.currentIndex]
-            await node.input(value)
+            await node.input(node.hook.historyRedo.dispatch(value))
             history.inProgress = false
             node.emit('history:redo', { previousValue, value })
           }

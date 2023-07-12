@@ -12,6 +12,11 @@ declare module '@formkit/core' {
   interface FormKitFrameworkContext {
     history: History
   }
+
+  interface FormKitHooks {
+    history: FormKitDispatcher<unknown>
+    beforeSavingToHistory: FormKitDispatcher<unknown>
+  }
 }
 
 export interface History {
@@ -52,14 +57,20 @@ export function createHistoryPlugin(
       const { delay = 300 } = HistoryOptions ?? {}
 
       const saveToHistory = debounce((value: unknown) => {
+        // Don't populate if the hook return false.
+        if (node.hook.beforeSavingToHistory.dispatch(value) === false) {
+          return
+        }
+
         history.history = history.history.slice(0, history.currentIndex + 1)
         history.history.push(value)
         history.currentIndex++
       }, delay)
 
       node.hook.input((payload, next) => {
-        if (!history.inProgress && payload !== node._value) {
-          saveToHistory(payload)
+        const _payload = node.hook.history.dispatch(payload)
+        if (!history.inProgress && _payload !== node._value) {
+          saveToHistory(_payload)
         }
         return next(payload)
       })

@@ -69,7 +69,7 @@ export function createHistoryPlugin(
 
       node.hook.input((payload, next) => {
         const _payload = node.hook.history.dispatch(payload)
-        if (!history.inProgress && _payload !== node._value) {
+        if (!history.inProgress && JSON.stringify(_payload) !== JSON.stringify(node._value)) {
           saveToHistory(_payload)
         }
         return next(payload)

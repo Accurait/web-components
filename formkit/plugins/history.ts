@@ -49,7 +49,7 @@ export function createHistoryPlugin(
   const historyPlugin = (node: FormKitNode) => {
     node.on('created', () => {
       const history = (node.context.history = reactive<History>({
-        history: [node._value],
+        history: [node.hook.history.dispatch(node._value)],
         currentIndex: 0,
         inProgress: false,
       }))

@@ -57,11 +57,6 @@ export function createHistoryPlugin(
       const { delay = 300 } = HistoryOptions ?? {}
 
       const saveToHistory = debounce((value: unknown) => {
-        // Don't populate if the hook return false.
-        if (node.hook.beforeSavingToHistory.dispatch(value) === false) {
-          return
-        }
-
         history.history = history.history.slice(0, history.currentIndex + 1)
         history.history.push(value)
         history.currentIndex++
@@ -69,7 +64,7 @@ export function createHistoryPlugin(
 
       node.hook.input((payload, next) => {
         const _payload = node.hook.history.dispatch(payload)
-        if (!history.inProgress && JSON.stringify(_payload) !== JSON.stringify(node._value)) {
+        if (!history.inProgress && JSON.stringify(_payload) !== JSON.stringify(node._value) && node.hook.beforeSavingToHistory.dispatch(_payload) !== false) {
           saveToHistory(_payload)
         }
         return next(payload)
